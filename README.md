@@ -1,23 +1,19 @@
 # README
+TABLE GAME PORTAL
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+* Ruby version -> 2.3.3
+* Rails version -> 5.1.4
+* PostgreSQL version -> 9.3.1
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+* Configuration:
+- install Postgres if you haven't done this already
+- add a user "tableGameDBUser" with the password "123" and the right to create a new DB
+- clone repo (for Windows the destination should probably be the "RubyDevKit" folder)
+- enter cloned folder in your cmd (cd c:/RubyDevKit/tabelGameSite)
+- run "bundle" to get the pg gem
+- run "rake db:create"
 
 * Deployment instructions
 
