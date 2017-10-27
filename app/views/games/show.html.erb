@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @game.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @game.description %>
+</p>
+
+<p>
+  <strong>Playtime:</strong>
+  <%= @game.playtime %>
+</p>
+
+<p>
+  <strong>Maxplayer:</strong>
+  <%= @game.maxPlayer %>
+</p>
+
+<p>
+  <strong>Gametype:</strong>
+  <%= @game.gameType %>
+</p>
+
+<p>
+  <strong>Releaseyear:</strong>
+  <%= @game.releaseYear %>
+</p>
+
+<p>
+  <strong>Pictureurl:</strong>
+  <%= @game.pictureUrl %>
+</p>
+
+<h2>Comments</h2>
+<%= render @game.comments %>
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>
