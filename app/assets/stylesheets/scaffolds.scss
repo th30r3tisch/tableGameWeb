@@ -9,8 +9,9 @@ body {
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 15px;
+  line-height: 20px;
+  color: #689b04;
 }
 
 pre {
@@ -20,7 +21,7 @@ pre {
 }
 
 a {
-  color: #000;
+  color: #250;
 
   &:visited {
     color: #666;
@@ -70,7 +71,7 @@ div {
     font-size: 12px;
     margin: -7px -7px 0;
     background-color: #c00;
-    color: #fff;
+    color: #9ee80b;
   }
 
   ul li {

@@ -8,6 +8,7 @@ class CreateGames < ActiveRecord::Migration[5.1]
       t.string :gameType
       t.integer :releaseYear
       t.string :pictureUrl
+      t.string :cost
 
       t.timestamps
     end
