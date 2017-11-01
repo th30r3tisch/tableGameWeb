@@ -1,70 +1,34 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-
-</head>  <head>
+<!doctype html>
+<html>
+<head>
     <title>BoardGameSite</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <%= csrf_meta_tags %>
-    <h1> <u> Board Games Site </u> </h1>
-    	 <br><br>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head>
 <body>
-    <%= yield %>
-<div id="container">
+	<div id="header">
+	  	<h1> <u> Board Games Site </u> </h1>
+  		<div id="menu">
+    	<ul>
+      		<li><%= link_to 'HOME', games_path %></li>
+      		<li><a href="#" title="">ABOUT US</a></li>
+      		<li><a href="#" title="">NEWS</a></li>
+      		<li><a href="#" title="">CONTACT US</a></li>
+      		<li><a href="#" title="">LINKS</a></li>
+    	</ul>
+  		</div>
+  	</div>
 
-  <div id="header">
+  	<div id="content">
 
-  </div>
-	 <br><br>
-  <div id="menu">
-    <ul>
-      <li><a href="#" title="">HOME</a></li>
-      <li><a href="#" title="">ABOUT US</a></li>
-      <li><a href="#" title="">NEWS</a></li>
-      <li><a href="#" title="">CONTACT US</a></li>
-      <li><a href="#" title="">LINKS</a></li>
+	  <%= yield %>
 
-    </ul>
-  </div>
+  	</div>
 
-
-  <div id="content">
-
-    <div id="insidecontent"> <br>
-      <h2>Welcome!</h2>
-
-      <p>
-	  In diesem Bereich werden anklickbare Bilder von den Spielen gezeigt.
-	 <br><br>
-	  </p>
-	        <h2>Lorem ipsum</h2>
-
-      <p>
-	  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	 <br><br>
-	  </p>
-	   <p>
-	  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	  <br><br>
-	  </p>
-
-    </div>
-
-
-
-    <div style="clear: both;"></div>
-
-  </div>
-
-
-
-  <div id="footer"> <span>  </span>
-  </div>
-
-</div>
+  	<div id="footer">
+	  
+  	</div>
 </body>
 </html>
