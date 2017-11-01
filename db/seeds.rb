@@ -7,3 +7,5 @@ game1 = Game.create(name: "GameNrOne", description: "here the game is explained 
 game2 = Game.create(name: "GameNrTwo", description: "here the game is explained and some more infos abaut how to play the game..", playtime: 12, maxPlayer: 5, gameType: "fight", releaseYear: 2015, pictureUrl: "http://via.placeholder.com/150x150" )
 
 game3 = Game.create(name: "GameNrThree", description: "here the game is explained and some more infos abaut how to play the game..", playtime: 1, maxPlayer: 2, gameType: "family", releaseYear: 1990, pictureUrl: "http://via.placeholder.com/150x250" )
+
+game4 = Game.create(name: "GameNrFour", description: "here the game is explained and some more infos abaut how to play the game..", playtime: 11, maxPlayer: 2, gameType: "sport", releaseYear: 1999, pictureUrl: "http://via.placeholder.com/150x250" )
