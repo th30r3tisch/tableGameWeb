@@ -2,7 +2,7 @@
 TABLE GAME PORTAL
 
 
-*Setup:
+* Setup:
 - Ruby version -> 2.3.3
 - Rails version -> 5.1.4
 - PostgreSQL version -> 9.3.1
@@ -19,6 +19,8 @@ TABLE GAME PORTAL
 - |run "rake db:migrate"|
 - |run "rake db:seed"	|
 
-* Deployment instructions
+* Links:
+	rspec informations : https://github.com/rspec/rspec-rails
+						 https://github.com/rails/rails-controller-testing
 
 * ...
