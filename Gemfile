@@ -37,6 +37,9 @@ gem 'jbuilder', '~> 2.5'
 #needed for rspec controller testing
 gem 'rails-controller-testing'
 
+# needed for rolemanagement (login)
+gem 'devise'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

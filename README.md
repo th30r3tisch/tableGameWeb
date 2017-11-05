@@ -22,5 +22,7 @@ TABLE GAME PORTAL
 * Links:
 	rspec informations : https://github.com/rspec/rspec-rails
 						 https://github.com/rails/rails-controller-testing
+						 
+	devise informations : https://github.com/plataformatec/devise#getting-started
 
 * ...
