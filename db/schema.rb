@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20171105013933) do
     t.bigint "game_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["game_id"], name: "index_comments_on_games_id"
+    t.index ["game_id"], name: "index_comments_on_game_id"
   end
 
   create_table "games", force: :cascade do |t|
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20171105013933) do
     t.string "gameType"
     t.integer "releaseYear"
     t.string "pictureUrl"
+    t.string "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

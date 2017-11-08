@@ -39,7 +39,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: tableGameDB
+  database: tableGameTestDB
   pool: 5
   username: tableGameDBUser
   password: 123
