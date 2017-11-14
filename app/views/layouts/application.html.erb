@@ -22,16 +22,26 @@
   	</div>
 
   	<div id="content">
-		
-	  <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-
-	  <%= yield %>
-
+		<% if notice.present? %>
+        	<aside class = "alert alert-info">
+         		<p class="notice"><%= notice %></p>
+       		</aside>
+     	<% end %>
+     	<% if alert.present? %>
+       		<aside class = "alert alert-danger">
+         		<p class="alert"><%= alert %></p>
+       		</aside>
+     	<% end %>
+	  	<%= yield %>
   	</div>
 
   	<div id="footer">
-	  
+	  	<% if current_admin %>
+      		<%= link_to "Log Out", destroy_admin_session_path, class: 'nav-link', method: :delete %>
+			<%= link_to('Mein Profil', edit_admin_registration_path) %>
+        <% else %>
+            <%= link_to "Log in", new_admin_session_path, class: 'nav-link' %>
+        <% end %>
   	</div>
 </body>
 </html>

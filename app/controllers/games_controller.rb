@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_admin!, only: [:index, :show]
 
   # GET /games
   # GET /games.json
@@ -60,6 +61,7 @@ class GamesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
