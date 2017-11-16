@@ -33,9 +33,11 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '3.1.0', :require => 'bcrypt'
+gem 'bcrypt', '3.1.11', platforms: [:ruby, :x64_mingw]
 
 #needed for rspec controller testing
 gem 'rails-controller-testing'
+gem "factory_bot_rails", "~> 4.0"
 
 # needed for rolemanagement (login)
 gem 'devise'

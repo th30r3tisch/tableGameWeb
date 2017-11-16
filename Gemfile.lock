@@ -81,6 +81,11 @@ GEM
     diff-lcs (1.3)
     erubi (1.7.0)
     execjs (2.7.0)
+    factory_bot (4.8.2)
+      activesupport (>= 3.0.0)
+    factory_bot_rails (4.8.2)
+      factory_bot (~> 4.8.2)
+      railties (>= 3.0.0)
     ffi (1.9.18-x64-mingw32)
     ffi (1.9.18-x86-mingw32)
     font-awesome-rails (4.7.0.2)
@@ -228,12 +233,14 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  bcrypt (= 3.1.11)
   bcrypt-ruby (= 3.1.0)
   bootstrap (~> 4.0.0.beta2.1)
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   devise
+  factory_bot_rails (~> 4.0)
   font-awesome-rails
   jbuilder (~> 2.5)
   jquery-rails
@@ -251,4 +258,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.15.4
+   1.16.0
