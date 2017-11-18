@@ -19,16 +19,9 @@
 
 body {
  text-align: center;
- background-color: #fff;
- color: #333;
- margin: 33px;
  font-family: verdana, arial, helvetica, sans-serif;
  font-size: 13px;
  line-height: 18px;
-}
-
-table {
- display: inline;
 }
 
 h1 {
@@ -61,25 +54,6 @@ pre {
  background-color: #eee;
  padding: 10px;
  font-size: 11px;
-}
-
-a {
- color: #250;
- &:visited {
-	 color: #666;
- }
- &:hover {
-	 color: #fff;
-	 background-color: #000;
- }
-}
-
-th {
- padding-bottom: 5px;
-}
-
-td {
- padding: 0 5px 7px;
 }
 
 div {
@@ -121,4 +95,81 @@ label {
 	 font-size: 12px;
 	 list-style: square;
  }
+}
+
+#content{
+	margin: 50px 50px 100px 50px;
+}
+
+.flex-container{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.flex-item{
+	margin: 10px;
+	list-style: none;
+	> div:first-of-type{
+		margin-top: -35px;
+		div{
+			height: 35px;
+    		border-top-left-radius: 10px;
+		    background-color:rgba(0,0,0,0.57);
+    		z-index: 2;
+    		float: right;
+    		width: 50%;
+    		position: relative;
+			padding-top: 2px;
+		}
+		& a{
+			padding: 0 3px;
+			&:hover{
+				background-color: transparent;
+				& i{
+					color: white;
+				}
+			}
+		}
+	}
+}
+
+#footer{
+	background-color: black;
+	position: fixed;
+	bottom: 0px;
+	height: 50px;
+	width: 100vw;
+	& .perso-link{
+		float: right;
+		padding: 15px;
+	}
+}
+
+
+/**
+ICONS
+**/
+.fa-trash-o{
+	color: red;
+}
+.fa-pencil-square-o{
+	color: blue;
+}
+
+/**
+FORMS
+**/
+form{
+	text-align: -webkit-center;
+	margin: 25px;
+	.form-group{
+		width: 20vw;
+    	display: block;
+	}
 }

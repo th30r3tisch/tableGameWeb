@@ -11,42 +11,42 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :game_name %>
+    <%= form.text_field :name, class:"form-control", id: :game_name %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description, id: :game_description %>
+    <%= form.text_area :description, class:"form-control", id: :game_description %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :playtime %>
-    <%= form.text_field :playtime, id: :game_playtime %>
+    <%= form.text_field :playtime, class:"form-control", id: :game_playtime %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :maxPlayer %>
-    <%= form.text_field :maxPlayer, id: :game_maxPlayer %>
+    <%= form.text_field :maxPlayer, class:"form-control", id: :game_maxPlayer %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :gameType %>
-    <%= form.text_field :gameType, id: :game_gameType %>
+    <%= form.text_field :gameType, class:"form-control", id: :game_gameType %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :releaseYear %>
-    <%= form.text_field :releaseYear, id: :game_releaseYear %>
+    <%= form.text_field :releaseYear, class:"form-control", id: :game_releaseYear %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :pictureUrl %>
-    <%= form.text_field :pictureUrl, id: :game_pictureUrl %>
+    <%= form.text_field :pictureUrl, class:"form-control", id: :game_pictureUrl %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Speichern", class:"btn btn-primary" %>
   </div>
 <% end %>
