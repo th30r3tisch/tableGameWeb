@@ -34,10 +34,14 @@
 </p>
 
 <h4>Comments</h4>
+<div id="comments">
 <%= render @game.comments %>
+</div>
 
-<h5>Add a comment:</h5>
-<%= render 'comments/form' %>
+<% if current_admin %>
+	<h5>Add a comment:</h5>
+	<%= render 'comments/form' %>
 
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+	<%= link_to 'Edit', edit_game_path(@game) %> |
+	<%= link_to 'Back', games_path %>
+<% end %>

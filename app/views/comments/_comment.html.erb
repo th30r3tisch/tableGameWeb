@@ -1,16 +1,21 @@
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
- 
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
+  
+ <div class="commentWrapper">
+	 <div>
+		<%= comment.body %>
+	 </div>
+	 <div class="commentInfo">
+		 <span><%= comment.created_at %></span>
+		 <span><%= comment.commenter %></span>
+	 </div>
+</div>
+    
 
+
+<% if current_admin %>
 <p>
   <%= link_to 'Löschen', [comment.game, comment],
                method: :delete,
                data: { confirm: 'Are you sure?' },
 			   class: "btn btn-danger" %>
 </p>
+<% end %>

@@ -173,3 +173,38 @@ form{
     	display: block;
 	}
 }
+#profilForm {
+	display: inline-flex;
+	div{
+		margin: 20px;
+	}
+}
+
+/**
+Comments
+**/
+.commentWrapper{
+	width: 40vw;
+	background: -webkit-linear-gradient(left, rgba(0,123,255,0), rgba(0,123,255,1)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, rgba(0,123,255,0), rgba(0,123,255,1)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, rgba(0,123,255,0), rgba(0,123,255,1)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, rgba(0,123,255,0), rgba(0,123,255,1)); /* Standard syntax (must be last) */
+	margin: 5px;
+	border-radius: 5px;
+	border: 2px solid grey;
+	> div:first-of-type{
+    	background-color: white;
+    	padding:5px;
+	}
+	.commentInfo{
+		text-align: right;
+		padding: 5px;
+		span{
+			margin: 5px;
+		}
+	}
+}
+#comments{
+	text-align: center;
+	display: inline-block;
+}

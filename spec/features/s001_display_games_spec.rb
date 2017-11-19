@@ -22,12 +22,12 @@ require 'rails_helper'
 	 
    it "links to games details" do
 	visit root_path
- 	expect {first('.showGame').click}.to have_content("GameNrOne")
+ 	expect {first('.gamePic').click}.to have_content("GameNrOne")
    end
 	 
    it "destroys a game" do
 	visit root_path
- 	expect {first('.deleteGame').click}.to change(Game, :count).by(-1)
+ 	expect {first('a[href="Destroy"]').click}.to change(Game, :count).by(-1)
    end
 	 
  end

@@ -13,12 +13,12 @@ require 'rails_helper'
  
    it 'shows the comments' do
      visit game_path(@game) 
-     expect(page).to have_content('Commenter: pers1')
-     expect(page).to have_content('Commenter: pers2')
+     expect(page).to have_content('pers1')
+     expect(page).to have_content('pers2')
    end
 	 
    it "destroys a comment" do
 	visit game_path(@game)
- 	expect {first('.deleteCommi').click}.to change(Comment, :count).by(-1)
+ 	expect {first('.btn-danger').click}.to change(Comment, :count).by(-1)
    end
  end
