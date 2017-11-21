@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 	end
 
   	get 'games/index'
+	
+	get 'admins/:id' => 'admins#show', as: "show"
 
   	root 'games#index'
 
