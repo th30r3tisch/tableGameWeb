@@ -14,7 +14,7 @@
 <ul class="flex-container">
  	<% @games.each do |game| %>
 		<li class="flex-item"> 
-			<%= link_to image_tag(game.pictureUrl, size: "200x200", alt: game.name), game, class: "gamePic" %>
+			<%= link_to image_tag(game.pictureUrl, size: "200x200", alt: game.name), showGame_path(game.id,current_admin.id), class: "gamePic" %>
 			<div>
 				<% if current_admin %>
 				<div>
@@ -33,5 +33,6 @@
 		</li>
 	<% end %>
 </ul>
+
 <%= link_to 'New Game', new_game_path %>
 
