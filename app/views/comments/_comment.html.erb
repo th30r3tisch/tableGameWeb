@@ -5,7 +5,7 @@
 	 </div>
 	 <div class="commentInfo">
 		 <span><%= comment.created_at %></span>
-		 <span><%= link_to comment.commenter, show_path(current_admin.id) %></span>
+		 <span><%= link_to comment.commenter, show_path(comment.admin_id) %></span>
 	 </div>
 </div>
     

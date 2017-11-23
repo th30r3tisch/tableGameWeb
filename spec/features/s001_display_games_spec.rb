@@ -22,7 +22,8 @@ require 'rails_helper'
 	 
    it "links to games details" do
 	visit root_path
- 	expect {first('.gamePic').click}.to have_content("GameNrOne")
+	first('.gamePic').click
+ 	expect(page).to have_content("GameNrOne")
    end
 	 
    it "destroys a game" do

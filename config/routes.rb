@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   	get 'games/index'
 	
 	get 'admins/:id' => 'admins#show', as: "show"
-	get 'games/:idG/:idU' => 'games#show', as: "showGame"
+	get 'games/:id(/:idU)' => 'games#show', as: "showGame"
 	
 	#get '/games/:id'
 
