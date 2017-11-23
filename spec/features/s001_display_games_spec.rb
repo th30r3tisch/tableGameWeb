@@ -26,6 +26,7 @@ require 'rails_helper'
  	expect(page).to have_content("GameNrOne")
    end
 	 
+   #can't find destroy, so test fails.. duno why
    it "destroys a game" do
 	visit root_path
  	expect {first('a[href="Destroy"]').click}.to change(Game, :count).by(-1)

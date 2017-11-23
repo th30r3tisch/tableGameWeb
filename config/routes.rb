@@ -9,7 +9,6 @@ Rails.application.routes.draw do
 	get 'admins/:id' => 'admins#show', as: "show"
 	get 'games/:id(/:idU)' => 'games#show', as: "showGame"
 	
-	#get '/games/:id'
 
   	root 'games#index'
 
