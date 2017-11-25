@@ -27,16 +27,72 @@ body {
 h1 {
  font-size: 30px;
  font-weight: bold;
- font-family: fantasy;
  color: black;
+ padding: 5px;
+	u{
+		text-decoration: none;
+	}
 }
 
-#menu ul {
- display: inline-flex;
- list-style: none;
- li {
-	 padding: 0 20px;
- }
+#menu {
+	border-top: 2px solid rgba(0,6,126,1.00);
+	ul {
+		margin-top: 10px;
+	 	float: left;
+	 	display: inline-flex;
+	 	list-style: none;
+	 	li {
+		 	padding: 0 20px;
+		 	a{
+			 	padding-top: 5px;
+				color: black;
+				font-weight: 100;
+				&:hover{
+					color: rgba(0,6,126,1.00);
+					text-decoration: none;
+					&:after{ transform: scaleX(1); }
+				}
+				&:after{
+  					display:block;
+  					content: '';
+  					border-bottom: solid 2px rgba(0,6,126,1.00);  
+  					transform: scaleX(0);  
+  					transition: transform 250ms ease-in-out;
+				}
+				&:after{ transform-origin:  0% 50%; }
+		 	}
+	 	}
+	}
+}
+#search{
+	float: right;
+	form{
+		margin: 0;
+	}
+	button{
+		padding-right: 20px;
+		float: right;
+    	margin-top: -32px;
+    	background: none;
+    	border: none;
+	}
+	input[type=text] {
+		width: 200px;
+		border-left: none;
+    	border-right: none;
+    	border-top: none;
+    	border-radius: 0;
+    	border-bottom: 1px solid rgba(0,6,126,1.00);
+		-webkit-transition: width 0.4s ease-in-out;
+    	transition: width 0.4s ease-in-out;
+		&:focus {
+    		width: 300px;
+			box-shadow: 2px 2px 0.2rem rgba(0, 123, 255, 0.25);
+		}
+		&:hover {
+    		width: 300px;
+		}
+	}
 }
 
 .gameinfo span {
@@ -98,7 +154,7 @@ label {
 }
 
 #content{
-	margin: 50px 50px 100px 50px;
+	margin: 100px 50px 100px 50px;
 }
 
 .flex-container{

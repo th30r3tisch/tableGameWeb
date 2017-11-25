@@ -5,7 +5,12 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
-    @games = Game.all
+	  @games = Game.all
+	  if params[:term]
+   	    	#@games = Game.search(params[:term]).order("created_at DESC")
+		  	#@games = Game.where("Name LIKE ? OR GameType LIKE ?", "%#{params[:term]}%", "%#{params[:term]}%")
+		  @games = Game.where("Name LIKE ?", "%#{params[:term]}%")
+	  end
   end
 
   # GET /games/1
@@ -64,13 +69,22 @@ class GamesController < ApplicationController
 
 
   private
+	  
+	def self.search(search)
+  		where("name LIKE ? OR gameType LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%") 
+	end
+	
     # Use callbacks to share common setup or constraints between actions.
     def set_game
-      @game = Game.find(params["id"])
+      	@game = Game.find(params["id"])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:name, :description, :playtime, :maxPlayer, :gameType, :releaseYear, :pictureUrl)
+      	params.require(:game).permit(:name, :description, :playtime, :maxPlayer, :gameType, :releaseYear, :pictureUrl, :term)
     end
+	
+	def search_params
+		params.require(:term)
+	end
 end
