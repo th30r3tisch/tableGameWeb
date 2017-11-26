@@ -6,10 +6,10 @@ class GamesController < ApplicationController
   # GET /games.json
   def index
 	  @games = Game.all
-	  if params[:term]
-   	    	#@games = Game.search(params[:term]).order("created_at DESC")
-		  	#@games = Game.where("Name LIKE ? OR GameType LIKE ?", "%#{params[:term]}%", "%#{params[:term]}%")
-		  @games = Game.where("Name LIKE ?", "%#{params[:term]}%")
+	  if params[:search]
+   	      # rails is not able to search the gametype row in the db
+		  @games = Game.where("lower(name) LIKE ? OR lower(description) LIKE ? OR lower('gameType') LIKE ?", 
+			  "%#{params[:search].downcase}%", "%#{params[:search].downcase}%", "%#{params[:search].downcase}%")
 	  end
   end
 
@@ -81,10 +81,10 @@ class GamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      	params.require(:game).permit(:name, :description, :playtime, :maxPlayer, :gameType, :releaseYear, :pictureUrl, :term)
+      	params.require(:game).permit(:name, :description, :playtime, :maxPlayer, :gameType, :releaseYear, :pictureUrl)
     end
 	
 	def search_params
-		params.require(:term)
+		params.require(:search).permit(:name, :description, :gameType)
 	end
 end

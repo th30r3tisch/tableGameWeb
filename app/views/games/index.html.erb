@@ -12,7 +12,7 @@
 
 <h2>Games</h2>
 <% if @games.blank? %>
-  	<h5>There are no Games containing the term <%= params[:term] %>.</h5>
+  	<h5>There are no Games containing the term <%= params[:search] %>.</h5>
 <% end %>
 <ul class="flex-container">
  	<% @games.each do |game| %>
