@@ -1,6 +1,6 @@
 require 'rails_helper'
 
- describe 's001: the start page' do
+ describe 'the start page' do
   
    before :each do
      	Game.create(name: "GameNrOne", description: "here the game is explained and some more infos abaut how to play the game..", playtime: 5, maxPlayer: 4, gameType: "strategy", releaseYear: 2001, pictureUrl: "http://via.placeholder.com/350x150" )
@@ -26,10 +26,9 @@ require 'rails_helper'
  	expect(page).to have_content("GameNrOne")
    end
 	 
-   #can't find destroy, so test fails.. duno why
    it "destroys a game" do
 	visit root_path
- 	expect {first('a[href="Destroy"]').click}.to change(Game, :count).by(-1)
+ 	expect {first('a[data-method="delete"]').click }.to change(Game, :count).by(-1)
    end
 	 
  end

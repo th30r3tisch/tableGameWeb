@@ -1,6 +1,6 @@
 require 'rails_helper'
 
- describe 's001: the game detail page' do
+ describe 'the game detail page' do
    
    before :each do
 	   	admin = FactoryBot.create(:admin)

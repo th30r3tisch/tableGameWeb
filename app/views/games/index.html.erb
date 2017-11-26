@@ -24,7 +24,7 @@
 					<%= link_to edit_game_path(game) do %>
 						<%= fa_icon "pencil-square-o 2x", class: "" %>
 					<% end %>
-					<%= link_to 'Destroy' do %>
+					<%= link_to game, method: :delete, data: { confirm: 'Are you sure?' } do %>
 						<%= fa_icon "trash-o 2x", class: "" %>
 					<% end %>
 				</div>
