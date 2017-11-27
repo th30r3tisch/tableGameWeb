@@ -13,3 +13,23 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+function headerToggle(){
+ 	var shrinkHeader = 25;
+    var scroll = getCurrentScroll();
+	var m = document.getElementById('menu');
+	var h = document.getElementById('header');
+    if ( scroll >= shrinkHeader ) {
+		if(!h.classList.contains('shrink')){
+			h.className += "shrink";
+			m.className += "shrink";
+        }
+	} else {
+		h.classList.remove("shrink");
+		m.classList.remove("shrink");
+    }
+}
+
+function getCurrentScroll() {
+    return window.pageYOffset || document.documentElement.scrollTop;
+}

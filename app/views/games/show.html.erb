@@ -1,45 +1,46 @@
-<h2><%= @game.name %></h2>
+<div id="single">
+	<h2><%= @game.name %></h2>
 
+	<div class="gameinfo">
+		<span>
+		  <i class="fa fa-clock-o" aria-hidden="true"></i>
+		  <%= @game.playtime %>
+		</span>
 
-<p>
-  <strong>Description:</strong>
-  <%= @game.description %>
-</p>
-<div class="gameinfo">
-	<span>
-	  <i class="fa fa-clock-o fa-2x" aria-hidden="true"></i>
-	  <%= @game.playtime %>
-	</span>
+		<span>
+		  <i class="fa fa-users" aria-hidden="true"></i>
+		  <%= @game.maxPlayer %>
+		</span>
 
-	<span>
-	  <i class="fa fa-users fa-2x" aria-hidden="true"></i>
-	  <%= @game.maxPlayer %>
-	</span>
+		<span>
+		  <i class="fa fa-gamepad" aria-hidden="true"></i>
+		  <%= @game.gameType %>
+		</span>
 
-	<span>
-	  <i class="fa fa-gamepad fa-2x" aria-hidden="true"></i>
-	  <%= @game.gameType %>
-	</span>
+		<span>
+		  <i class="fa fa-calendar-o" aria-hidden="true"></i>
+		  <%= @game.releaseYear %>
+		</span>
+	</div>
 
-	<span>
-	  <i class="fa fa-calendar-o fa-2x" aria-hidden="true"></i>
-	  <%= @game.releaseYear %>
-	</span>
+	<div id="articlePart">
+		<img src=" <%= @game.pictureUrl %> ">
+		<p>
+		  <%= @game.description %>
+		</p>
+	</div>
+	<div id="commentPart">
+		<h4>Comments</h4>
+		<div id="comments">
+		<%= render @game.comments %>
+		</div>
+
+		<% if current_admin %>
+			<h5>Add a comment:</h5>
+			<%= render 'comments/form' %>
+
+			<%= link_to 'Edit', edit_game_path(@game) %> |
+			<%= link_to 'Back', games_path %>
+		<% end %>
+	</div>
 </div>
-
-<p>
-  <img src=" <%= @game.pictureUrl %> " width="100" height="150">
-</p>
-
-<h4>Comments</h4>
-<div id="comments">
-<%= render @game.comments %>
-</div>
-
-<% if current_admin %>
-	<h5>Add a comment:</h5>
-	<%= render 'comments/form' %>
-
-	<%= link_to 'Edit', edit_game_path(@game) %> |
-	<%= link_to 'Back', games_path %>
-<% end %>

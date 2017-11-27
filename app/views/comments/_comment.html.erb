@@ -4,18 +4,15 @@
 		<%= comment.body %>
 	 </div>
 	 <div class="commentInfo">
+		<% if current_admin %>
+			<span>
+				<%= link_to 'Löschen', [comment.game, comment],
+					   method: :delete,
+					   data: { confirm: 'Are you sure?' },
+					   class: "btn btn-danger" %>
+			</span>
+		<% end %>
 		 <span><%= comment.created_at %></span>
 		 <span><%= link_to comment.commenter, show_path(comment.admin_id) %></span>
 	 </div>
 </div>
-    
-
-
-<% if current_admin %>
-<p>
-  <%= link_to 'Löschen', [comment.game, comment],
-               method: :delete,
-               data: { confirm: 'Are you sure?' },
-			   class: "btn btn-danger" %>
-</p>
-<% end %>

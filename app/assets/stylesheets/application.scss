@@ -22,20 +22,34 @@ body {
  font-family: verdana, arial, helvetica, sans-serif;
  font-size: 13px;
  line-height: 18px;
+ color: black;
 }
 
 h1 {
  font-size: 30px;
  font-weight: bold;
- color: black;
  padding: 5px;
 	u{
 		text-decoration: none;
 	}
 }
 
+#header{
+	position: fixed;
+	top: 0px;
+	height: 55px;
+	width: 100vw;
+	border-bottom: 2px solid rgba(0,59,148,1.00);
+	background-color: white;
+	-webkit-transition: 0.4s;
+    -moz-transition:  0.4s;
+    transition: 0.4s;
+}
+
 #menu {
-	border-top: 2px solid rgba(0,6,126,1.00);
+	-webkit-transition: margin 0.4s;
+    -moz-transition: margin 0.4s;
+    transition: margin 0.4s;
 	ul {
 		margin-top: 10px;
 	 	float: left;
@@ -45,17 +59,16 @@ h1 {
 		 	padding: 0 20px;
 		 	a{
 			 	padding-top: 5px;
-				color: black;
 				font-weight: 100;
 				&:hover{
-					color: rgba(0,6,126,1.00);
+					color: rgba(0,59,148,1.00);
 					text-decoration: none;
 					&:after{ transform: scaleX(1); }
 				}
 				&:after{
   					display:block;
   					content: '';
-  					border-bottom: solid 2px rgba(0,6,126,1.00);  
+  					border-bottom: solid 2px rgba(0,59,148,1.00);  
   					transform: scaleX(0);  
   					transition: transform 250ms ease-in-out;
 				}
@@ -64,9 +77,26 @@ h1 {
 	 	}
 	}
 }
+
+#menu.shrink{
+	margin-top: -45px;
+	a{
+		&:hover{
+			color: white;
+		}
+		&:after{
+  		border-bottom: solid 2px white;
+		}
+	}
+}
+#header.shrink{
+	background-color:black;
+	color: white;
+}
+
 #search{
 	form{
-		margin: 0;
+		margin: 2px 0;
 		float: right;
 	}
 	button{
@@ -103,7 +133,6 @@ p, ol, ul, td {
  font-family: verdana, arial, helvetica, sans-serif;
  font-size: 15px;
  line-height: 20px;
- color: #689b04;
 }
 
 pre {
@@ -154,7 +183,7 @@ label {
 }
 
 #content{
-	margin: 100px 50px 100px 50px;
+	margin: 130px 50px;
 }
 
 .flex-container{
@@ -175,23 +204,34 @@ label {
 		margin-top: -35px;
 		div{
 			height: 35px;
-    		border-top-left-radius: 10px;
 		    background-color:rgba(0,0,0,0.57);
-    		z-index: 2;
-    		float: right;
-    		width: 50%;
-    		position: relative;
-			padding-top: 2px;
+			padding-top: 4px;
+			position: relative;
+			color: white;
 		}
-		& a{
+	}
+	> div:nth-child(3){
+		opacity: 0;
+		height: 25px;
+		-webkit-transition: opacity 0.7s;
+    	-moz-transition: opacity 0.7s;
+    	transition: opacity 0.7s;
+	}
+	&:hover{
+		> div:nth-child(3){
+		opacity: 1;
+		a{
 			padding: 0 3px;
+			font-size: 1.5rem;
 			&:hover{
 				background-color: transparent;
-				& i{
-					color: white;
+				text-decoration: none;
+				i{
+					color: black;
 				}
 			}
 		}
+	}
 	}
 }
 
@@ -208,7 +248,29 @@ label {
 	}
 }
 
-
+/**
+single game view
+**/
+#single{
+	margin: 0 17vw;
+	padding: 30px 50px;
+	background: #f1f1f1;
+    border-radius: 50px;
+	.gameinfo{
+		color:rgba(0,59,148,1.00);
+	}
+	#articlePart{
+		padding-top: 20px;
+		margin-top: 20px;
+		img{
+			float: left;
+		}
+	}
+	#commentPart{
+		padding-top: 40px;
+		clear: both;
+	}
+}
 /**
 ICONS
 **/
@@ -218,7 +280,9 @@ ICONS
 .fa-pencil-square-o{
 	color: blue;
 }
-
+.gameinfo .fa{
+	font-size: 20px;
+}
 /**
 FORMS
 **/
@@ -242,22 +306,33 @@ Comments
 **/
 .commentWrapper{
 	width: 40vw;
-	background: -webkit-linear-gradient(left, rgba(0,123,255,0), rgba(0,123,255,1)); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(left, rgba(0,123,255,0), rgba(0,123,255,1)); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(left, rgba(0,123,255,0), rgba(0,123,255,1)); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, rgba(0,123,255,0), rgba(0,123,255,1)); /* Standard syntax (must be last) */
+	background: -webkit-linear-gradient(left, rgba(0,123,255,0), rgba(0,59,148,1.00)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, rgba(0,123,255,0), rgba(0,59,148,1.00)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, rgba(0,123,255,0), rgba(0,59,148,1.00)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, rgba(0,123,255,0), rgba(0,59,148,1.00)); /* Standard syntax (must be last) */
 	margin: 5px;
 	border-radius: 5px;
 	border: 2px solid grey;
 	> div:first-of-type{
-    	background-color: white;
+    	background-color:#f1f1f1;
     	padding:5px;
 	}
 	.commentInfo{
 		text-align: right;
 		padding: 5px;
+		color:#f1f1f1;
 		span{
 			margin: 5px;
+		}
+		a{
+			color: white;
+			&:hover{
+				color:#007bff;
+			}
+		}
+		.btn{
+			padding: 0 .75rem;
+			font-size: 0.9rem;
 		}
 	}
 }
