@@ -11,32 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :event_name %>
+    <%= form.text_field :name, class:"form-control", id: :event_name %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :startDate %>
-    <%= form.date_select :startDate, id: :event_startDate %>
+    <%= form.datetime_select :startDate, class:"form-control", id: :event_startDate, default: DateTime.now %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :endDate %>
-    <%= form.date_select :endDate, id: :event_endDate %>
+    <%= form.datetime_select :endDate, class:"form-control", id: :event_endDate, default: DateTime.now %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
+    <%= form.label :game %>
+    <%= form.select :game, Game.all.collect { |g| g.id.to_s + ". " + g.name }, include_blank: true, id: :event_game_id %>
+  </div>
+
+  <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description, id: :event_description %>
+    <%= form.text_area :description, class:"form-control", id: :event_description %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :ort %>
-    <%= form.text_field :ort, id: :event_ort %>
+    <%= form.text_field :ort, class:"form-control", id: :event_ort %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Speichern", class:"btn btn-primary" %>
   </div>
 <% end %>

@@ -25,7 +25,10 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
+      @event = Event.new(event_params)
+	  #byebug
+	  @game = Game.find(params[:game].split(/./).first.to_i)
+	  @event.game_id = @game
 
     respond_to do |format|
       if @event.save
