@@ -8,7 +8,7 @@ class GamesController < ApplicationController
 	  @games = Game.all
 	  if params[:search]
    	      # rails is not able to search the gametype row in the db
-		  @games = Game.where("lower(name) LIKE ? OR lower(description) LIKE ? OR lower('gameType') LIKE ?", 
+		  @games = Game.where('lower(name) LIKE ? OR lower(description) LIKE ? OR lower("gameType") LIKE ?', 
 			  "%#{params[:search].downcase}%", "%#{params[:search].downcase}%", "%#{params[:search].downcase}%")
 	  end
   end

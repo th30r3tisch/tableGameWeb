@@ -27,11 +27,12 @@ class EventsController < ApplicationController
   def create
       @event = Event.new(event_params)
 	  #byebug
-	  @game = Game.find(params[:game].split(/./).first.to_i)
-	  @event.game_id = @game
+	  #@game = Game.find(params[:game].split(/./).first.to_i)
+	  #@event.game_id = @game
 
     respond_to do |format|
       if @event.save
+		@event.admins << current_admin
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
@@ -73,6 +74,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :startDate, :endDate, :description, :ort, :game)
+      params.require(:event).permit(:name, :startDate, :endDate, :description, :ort, :game_id)
     end
 end

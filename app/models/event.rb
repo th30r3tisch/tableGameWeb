@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
 	belongs_to :game
 	has_and_belongs_to_many :admins
-	has_many :comments, dependent: :destroy
+	#has_many :comments, dependent: :destroy
 	
 	validates :game, presence: true
 	validates :startDate, presence: true

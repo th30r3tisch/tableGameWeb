@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129002900) do
+ActiveRecord::Schema.define(version: 20171130123307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(version: 20171129002900) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
+  end
+
+  create_table "admins_events", id: false, force: :cascade do |t|
+    t.bigint "admin_id"
+    t.bigint "event_id"
+    t.index ["admin_id"], name: "index_admins_events_on_admin_id"
+    t.index ["event_id"], name: "index_admins_events_on_event_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -54,13 +61,6 @@ ActiveRecord::Schema.define(version: 20171129002900) do
     t.index ["game_id"], name: "index_events_on_game_id"
   end
 
-  create_table "events_player_dependencies", id: false, force: :cascade do |t|
-    t.bigint "admin_id"
-    t.bigint "event_id"
-    t.index ["admin_id"], name: "index_events_player_dependencies_on_admin_id"
-    t.index ["event_id"], name: "index_events_player_dependencies_on_event_id"
-  end
-
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -73,9 +73,9 @@ ActiveRecord::Schema.define(version: 20171129002900) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "admins_events", "admins"
+  add_foreign_key "admins_events", "events"
   add_foreign_key "comments", "admins"
   add_foreign_key "comments", "games"
   add_foreign_key "events", "games"
-  add_foreign_key "events_player_dependencies", "admins"
-  add_foreign_key "events_player_dependencies", "events"
 end
