@@ -4,13 +4,18 @@
 </p>
 
 <p>
+  <strong>Spiel:</strong>
+  <%= @event.game.name %>
+</p>
+
+<p>
   <strong>Startdate:</strong>
-  <%= @event.startDate %>
+  <%= @event.startDate.strftime("%d-%m-%Y %I:%M")%>
 </p>
 
 <p>
   <strong>Enddate:</strong>
-  <%= @event.endDate %>
+  <%= @event.endDate.strftime("%d-%m-%Y %I:%M") %>
 </p>
 
 <p>

@@ -70,9 +70,10 @@ class GamesController < ApplicationController
 
   private
 	  
-	def self.search(search)
-  		where("name LIKE ? OR gameType LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%") 
-	end
+	# does not work
+	#def self.search(search)
+  	#	where("name LIKE ? OR gameType LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%") 
+	#end
 	
     # Use callbacks to share common setup or constraints between actions.
     def set_game

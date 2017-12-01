@@ -200,6 +200,10 @@ label {
 .flex-item{
 	margin: 10px;
 	list-style: none;
+	img{	
+		min-width: 200px;
+		min-height:200px;
+	}
 	> div:first-of-type{
 		margin-top: -35px;
 		div{
@@ -339,4 +343,28 @@ Comments
 #comments{
 	text-align: center;
 	display: inline-block;
+}
+
+/**
+error messages
+**/
+.field_with_errors{
+	display: block;
+    color: red;
+	background-color: rgba(219, 112, 147, 0);
+}
+
+#error_explanation{
+	background-color: #ff00002e;
+	border-radius: 10px;
+	h2{
+		color: red;
+		text-align: center;
+		border-bottom: 1px solid red;
+		background-color: rgba(219, 112, 147, 0);
+	}
+	ul{
+		margin-top: 0.5rem;
+    	margin-bottom: 0.5rem;
+	}
 }

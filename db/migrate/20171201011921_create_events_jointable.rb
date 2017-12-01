@@ -1,6 +1,5 @@
-class ChangeTableNameofEventsPlayerDependencies < ActiveRecord::Migration[5.1]
+class CreateEventsJointable < ActiveRecord::Migration[5.1]
   def change
-	  drop_table :admins_events
 	  create_table :admins_events, id: false do |t|
       t.belongs_to :admin, index: true
       t.belongs_to :event, index: true
