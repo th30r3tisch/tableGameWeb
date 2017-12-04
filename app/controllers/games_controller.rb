@@ -85,7 +85,8 @@ class GamesController < ApplicationController
       	params.require(:game).permit(:name, :description, :playtime, :maxPlayer, :gameType, :releaseYear, :pictureUrl)
     end
 	
-	def search_params
-		params.require(:search).permit(:name, :description, :gameType)
-	end
+	# does not work
+	#def search_params
+	#	params.require(:search).permit(:name, :description, :gameType)
+	#end
 end

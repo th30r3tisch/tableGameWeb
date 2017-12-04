@@ -6,6 +6,11 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
+	  if params[:search]
+   	      # rails is not able to search the gametype row in the db
+		  @events = Event.where('lower(name) LIKE ? OR lower(description) LIKE ? OR lower("ort") LIKE ?', 
+			  "%#{params[:search].downcase}%", "%#{params[:search].downcase}%", "%#{params[:search].downcase}%")
+	  end
   end
 
   # GET /events/1
@@ -25,10 +30,7 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-      @event = Event.new(event_params)
-	  #byebug
-	  #@game = Game.find(params[:game].split(/./).first.to_i)
-	  #@event.game_id = @game
+    @event = Event.new(event_params)
 
     respond_to do |format|
       if @event.save
