@@ -40,6 +40,10 @@ gem "factory_bot_rails", "~> 4.0"
 # needed for rolemanagement (login)
 gem 'devise'
 
+# gems to upload pictures
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick', '~> 4.3'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

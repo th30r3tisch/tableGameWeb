@@ -8,7 +8,7 @@ class GamesController < ApplicationController
 	  @games = Game.all
 	  if params[:search]
    	      # rails is not able to search the gametype row in the db
-		  @games = Game.where('lower(name) LIKE ? OR lower(description) LIKE ? OR lower("gameType") LIKE ?', 
+		  @games = Game.where('lower(name) LIKE ? OR lower(description) LIKE ? OR lower("gameType") LIKE ?',
 			  "%#{params[:search].downcase}%", "%#{params[:search].downcase}%", "%#{params[:search].downcase}%")
 	  end
   end
@@ -48,6 +48,10 @@ class GamesController < ApplicationController
   def update
     respond_to do |format|
       if @game.update(game_params)
+        if params[:remove_pictureUrl]
+          @game.remove_pictureUrl!
+          @game.save
+        end
         format.html { redirect_to @game, notice: 'Game was successfully updated.' }
         format.json { render :show, status: :ok, location: @game }
       else
@@ -69,12 +73,12 @@ class GamesController < ApplicationController
 
 
   private
-	  
+
 	# does not work
 	#def self.search(search)
-  	#	where("name LIKE ? OR gameType LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%") 
+  	#	where("name LIKE ? OR gameType LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
 	#end
-	
+
     # Use callbacks to share common setup or constraints between actions.
     def set_game
       	@game = Game.find(params["id"])
@@ -82,9 +86,10 @@ class GamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      	params.require(:game).permit(:name, :description, :playtime, :maxPlayer, :gameType, :releaseYear, :pictureUrl)
+      	params.require(:game).permit(:name, :description, :playtime, :maxPlayer, :gameType, :releaseYear, :pictureUrl, :remove_pictureUrl)
+
     end
-	
+
 	def search_params
 		params.require(:search).permit(:name, :description, :gameType)
 	end
