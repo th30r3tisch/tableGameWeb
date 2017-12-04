@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20171201011921) do
     t.string "gameType"
     t.integer "releaseYear"
     t.string "pictureUrl"
+    t.string "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
