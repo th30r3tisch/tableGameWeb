@@ -7,17 +7,25 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
-<body>
+<body onscroll="headerToggle()">
 	<div id="header">
 	  	<h1> <u> Board Games Site </u> </h1>
   		<div id="menu">
     	<ul>
       		<li><%= link_to 'HOME', games_path %></li>
-      		<li><a href="#" title="">ABOUT US</a></li>
+      		<li><%= link_to 'EVENTS', events_path %></li>
       		<li><a href="#" title="">NEWS</a></li>
       		<li><a href="#" title="">CONTACT US</a></li>
       		<li><a href="#" title="">LINKS</a></li>
     	</ul>
+		<div id="search">
+			<%= form_tag(games_path, method: :get) do %>
+  				<%= text_field_tag :search, params[:search], class:"form-control", placeholder: 'Search'%>
+  				<%= button_tag(type: "submit", name: nil) do%>
+					<i class="fa fa-search"></i>
+				<% end %>
+			<% end %>
+		</div>
   		</div>
   	</div>
 

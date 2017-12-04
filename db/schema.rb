@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121212856) do
+ActiveRecord::Schema.define(version: 20171201011921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 20171121212856) do
     t.index ["email"], name: "index_admins_on_email", unique: true
   end
 
+  create_table "admins_events", id: false, force: :cascade do |t|
+    t.bigint "admin_id"
+    t.bigint "event_id"
+    t.index ["admin_id"], name: "index_admins_events_on_admin_id"
+    t.index ["event_id"], name: "index_admins_events_on_event_id"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.string "commenter"
     t.text "body"
@@ -42,6 +49,18 @@ ActiveRecord::Schema.define(version: 20171121212856) do
     t.index ["game_id"], name: "index_comments_on_game_id"
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.datetime "startDate"
+    t.datetime "endDate"
+    t.text "description"
+    t.string "ort"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "game_id"
+    t.index ["game_id"], name: "index_events_on_game_id"
+  end
+
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -50,11 +69,11 @@ ActiveRecord::Schema.define(version: 20171121212856) do
     t.string "gameType"
     t.integer "releaseYear"
     t.string "pictureUrl"
-    t.string "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_foreign_key "comments", "admins"
   add_foreign_key "comments", "games"
+  add_foreign_key "events", "games"
 end
