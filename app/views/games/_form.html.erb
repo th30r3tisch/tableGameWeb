@@ -44,11 +44,13 @@
   <div class="form-group">
     <%= form.label :pictureUrl %>
     <%= form.file_field :pictureUrl, class:"form-control", id: :game_pictureUrl %>
+	<!-- doesnt work-->
     <% if form.object.pictureUrl? %>
       <%= image_tag form.object.pictureUrl.thumb.url %>
       <%= form.label :remove_image %>
       <%= form.check_box :remove_pictureUrl %>
     <% end %>
+	<!-- doesnt work-->
   </div>
 
   <div class="actions">

@@ -18,8 +18,7 @@
  	<% @games.each do |game| %>
 		<li class="flex-item">
 
-			<%= link_to image_tag(
-									(game.pictureUrl.thumb.url unless game.pictureUrl?), size: "200x200", alt: game.name), 
+			<%= link_to image_tag((game.pictureUrl.thumb.url), size: "200x200", alt: game.name), 
 									showGame_path(id:game, idU:current_admin) ,class: "gamePic" %>
 			<div>
 				<div><%= game.name %></div>
