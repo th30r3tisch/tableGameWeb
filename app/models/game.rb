@@ -12,7 +12,7 @@ class Game < ApplicationRecord
 	validate :image_size_validation
 
 	private
-  def image_size_validation
-    errors[:pictureUrl] << "should be less than 500KB" if pictureUrl.size > 0.5.megabytes
-  end
+	  def image_size_validation
+		errors[:pictureUrl] << "should be less than 500KB" if pictureUrl.size > 0.5.megabytes
+	  end
 end

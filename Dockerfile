@@ -13,8 +13,8 @@ FROM ruby:2.4.2
  
  # Set our working directory inside the image
  WORKDIR $APP_HOME
- ADD Gemfile $APP_HOME/Gemfile
- ADD Gemfile.lock $APP_HOME/Gemfile.lock
+ ADD Gemfile $APP_HOME
+ ADD Gemfile.lock $APP_HOME
  
  # Finish establishing our Ruby enviornment
  RUN bundle install
