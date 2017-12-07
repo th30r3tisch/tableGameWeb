@@ -1,7 +1,8 @@
 <h2>Editing Game</h2>
 
 <%= render 'form', game: @game %>
-
-<%= link_to 'Destroy', @game, method: :delete, data: { confirm: 'Are you sure?'} %> |
-<%= link_to 'Show', @game %> |
-<%= link_to 'Back', games_path %>
+<div class = "link-wrapper">
+	<%= link_to 'Destroy', @game, method: :delete, data: { confirm: 'Are you sure?'} %> |
+	<%= link_to 'Show', @game %> |
+	<%= link_to 'Back', games_path %>
+</div>

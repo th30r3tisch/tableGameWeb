@@ -98,6 +98,7 @@ h1 {
 	form{
 		margin: 2px 0;
 		float: right;
+		display: block;
 	}
 	button{
 		padding-right: 20px;
@@ -203,6 +204,7 @@ label {
 	img{
 		min-width: 200px;
 		min-height:200px;
+		display: block;
 	}
 	> div:first-of-type{
 		margin-top: -35px;
@@ -253,7 +255,7 @@ label {
 }
 
 /**
-single game view
+single view
 **/
 #single{
 	margin: 0 17vw;
@@ -275,6 +277,10 @@ single game view
 		clear: both;
 	}
 }
+
+.link-wrapper{
+	display: block;
+}
 /**
 ICONS
 **/
@@ -292,6 +298,8 @@ FORMS
 **/
 form{
 	text-align: -webkit-center;
+	text-align: center;
+	display: inline-grid;
 	margin: 25px;
 	.form-group{
 		width: 20vw;
