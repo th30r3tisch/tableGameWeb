@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
-	  <th>Spiel</th>
+	    <th>Spiel</th>
       <th>Startdate</th>
       <th>Enddate</th>
       <th>Ort</th>
@@ -16,7 +16,7 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= event.name %></td>
-		<td><%= event.game.name %></td>
+		    <td><%= event.game.name %></td>
         <td><%= event.startDate.strftime("%d/%m/%Y %I:%M") %></td>
         <td><%= event.endDate.strftime("%d/%m/%Y %I:%M") %></td>
         <td><%= event.ort %></td>
@@ -28,6 +28,8 @@
   </tbody>
 </table>
 
-<br>
+<% if @events.blank? %>
+    <h5>There are no Events containing the term <%= params[:search] %>.</h5>
+<% end %>
 
 <%= link_to 'New Event', new_event_path %>

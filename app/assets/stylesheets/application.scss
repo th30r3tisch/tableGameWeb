@@ -17,6 +17,9 @@
 
 @import "font-awesome";
 
+
+$errorColor: #ff00002e;
+
 body {
  text-align: center;
  font-family: verdana, arial, helvetica, sans-serif;
@@ -42,8 +45,9 @@ h1 {
 	border-bottom: 2px solid rgba(0,59,148,1.00);
 	background-color: white;
 	-webkit-transition: 0.4s;
-    -moz-transition:  0.4s;
-    transition: 0.4s;
+  -moz-transition:  0.4s;
+  transition: 0.4s;
+  z-index: 3;
 }
 
 #menu {
@@ -114,14 +118,14 @@ h1 {
     	border-top: none;
     	border-radius: 0;
     	border-bottom: 1px solid rgba(0,6,126,1.00);
-		-webkit-transition: width 0.4s ease-in-out;
+		  -webkit-transition: width 0.4s ease-in-out;
     	transition: width 0.4s ease-in-out;
 		&:focus {
-    		width: 300px;
+    	width: 300px;
 			box-shadow: 2px 2px 0.2rem rgba(0, 123, 255, 0.25);
 		}
 		&:hover {
-    		width: 300px;
+    	width: 300px;
 		}
 	}
 }
@@ -136,18 +140,6 @@ p, ol, ul, td {
  line-height: 20px;
 }
 
-pre {
- background-color: #eee;
- padding: 10px;
- font-size: 11px;
-}
-
-div {
- &.field, &.actions {
-	 margin-bottom: 10px;
- }
-}
-
 #notice {
  color: green;
 }
@@ -156,35 +148,11 @@ label {
  display: block;
 }
 
-.field_with_errors {
- padding: 2px;
- background-color: red;
- display: table;
-}
-
-#error_explanation {
- width: 450px;
- border: 2px solid red;
- padding: 7px 7px 0;
- margin-bottom: 20px;
- background-color: #f0f0f0;
- h2 {
-	 text-align: left;
-	 font-weight: bold;
-	 padding: 5px 5px 5px 15px;
-	 font-size: 12px;
-	 margin: -7px -7px 0;
-	 background-color: #c00;
-	 color: #9ee80b;
- }
- ul li {
-	 font-size: 12px;
-	 list-style: square;
- }
-}
-
 #content{
-	margin: 130px 50px;
+  padding: 50px;
+  margin: 50px 0;
+  background-color: white;
+  z-index: 1;
 }
 
 .flex-container{
@@ -242,7 +210,7 @@ label {
 }
 
 #footer{
-	z-index: 10;
+	z-index: -1;
 	background-color: black;
 	position: fixed;
 	bottom: 0px;
@@ -298,12 +266,12 @@ FORMS
 **/
 form{
 	text-align: -webkit-center;
-	text-align: center;
+  text-align: center;
 	display: inline-grid;
 	margin: 25px;
 	.form-group{
-		width: 20vw;
-    	display: block;
+    width: 30vw;
+    display: block;
 	}
 }
 #profilForm {
@@ -319,9 +287,9 @@ Comments
 .commentWrapper{
 	width: 40vw;
 	background: -webkit-linear-gradient(left, rgba(0,123,255,0), rgba(0,59,148,1.00)); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(left, rgba(0,123,255,0), rgba(0,59,148,1.00)); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(left, rgba(0,123,255,0), rgba(0,59,148,1.00)); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, rgba(0,123,255,0), rgba(0,59,148,1.00)); /* Standard syntax (must be last) */
+  background: -o-linear-gradient(left, rgba(0,123,255,0), rgba(0,59,148,1.00)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(left, rgba(0,123,255,0), rgba(0,59,148,1.00)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, rgba(0,123,255,0), rgba(0,59,148,1.00)); /* Standard syntax (must be last) */
 	margin: 5px;
 	border-radius: 5px;
 	border: 2px solid grey;
@@ -357,22 +325,28 @@ Comments
 error messages
 **/
 .field_with_errors{
-	display: block;
-    color: red;
-	background-color: rgba(219, 112, 147, 0);
+  color: red;
 }
 
 #error_explanation{
-	background-color: #ff00002e;
+	background-color: $errorColor;
 	border-radius: 10px;
+  border: 2px solid red;
+  margin-bottom: 20px;
 	h2{
+    font-weight: bold;
+   	padding: 5px;
 		color: red;
+    font-size: 12px;
 		text-align: center;
 		border-bottom: 1px solid red;
-		background-color: rgba(219, 112, 147, 0);
 	}
 	ul{
-		margin-top: 0.5rem;
-    	margin-bottom: 0.5rem;
+    font-size: 12px;
+ 	  list-style: square;
 	}
+}
+
+.alert{
+    z-index: 2;
 }

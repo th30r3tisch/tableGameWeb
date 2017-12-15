@@ -1,13 +1,11 @@
 <div id = "insidecontent">
 	  <h2>Lorem ipsum</h2>
-
-      <p>
+    <p>
 	  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 	  </p>
 	  <p>
 	  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 	  </p>
-
 </div>
 
 <h2>Games</h2>
@@ -15,26 +13,25 @@
   	<h5>There are no Games containing the term <%= params[:search] %>.</h5>
 <% end %>
 <ul class="flex-container">
- 	<% @games.each do |game| %>
-		<li class="flex-item">
-
-			<%= link_to image_tag((game.pictureUrl.thumb.url), size: "200x200", alt: game.name), 
-									showGame_path(id:game, idU:current_admin) ,class: "gamePic" %>
-			<div>
-				<div><%= game.name %></div>
-			</div>
-			<% if current_admin %>
-				<div>
-					<%= link_to edit_game_path(game) do %>
-						<%= fa_icon "pencil-square-o" %>
+		<% @games.each do |game| %>
+			<li class="flex-item">
+					<%= link_to image_tag((game.pictureUrl.thumb.url), size: "200x200", alt: game.name),
+										showGame_path(id:game, idU:current_admin) ,class: "gamePic" %>
+					<div>
+							<div><%= game.name %></div>
+					</div>
+					<% if current_admin %>
+						<div>
+							<%= link_to edit_game_path(game) do %>
+								<%= fa_icon "pencil-square-o" %>
+							<% end %>
+							<%= link_to game, method: :delete, data: { confirm: 'Are you sure?' } do %>
+								<%= fa_icon "trash-o" %>
+							<% end %>
+						</div>
 					<% end %>
-					<%= link_to game, method: :delete, data: { confirm: 'Are you sure?' } do %>
-						<%= fa_icon "trash-o" %>
-					<% end %>
-				</div>
-			<% end %>
-		</li>
-	<% end %>
+			</li>
+		<% end %>
 </ul>
 
 <%= link_to 'New Game', new_game_path %>
