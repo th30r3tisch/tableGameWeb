@@ -1,6 +1,7 @@
 class Admin < ApplicationRecord
 	belongs_to :role
-	before_create :set_default_role # or before_validation :set_default_role
+	#before_create :set_default_role # or before_validation :set_default_role
+	before_validation :set_default_role, on: :create
 	has_many :comments
   	# Include default devise modules. Others available are:
   	# :confirmable, :lockable, :timeoutable and :omniauthable
@@ -12,6 +13,6 @@ class Admin < ApplicationRecord
   private
 
   	def set_default_role
-    	self.role ||= Role.find_by_name('registered')
+    	self.role ||= Role.find_by_name('user')
   	end
 end
