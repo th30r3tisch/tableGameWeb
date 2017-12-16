@@ -1,4 +1,8 @@
 FactoryBot.define do
+  factory :category_tag do
+    name "MyString"
+    color "MyString"
+  end
   factory :event do
     name "MyString"
     startDate "2017-11-28"

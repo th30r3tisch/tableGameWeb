@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171201011921) do
+ActiveRecord::Schema.define(version: 20171216004025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 20171201011921) do
     t.bigint "event_id"
     t.index ["admin_id"], name: "index_admins_events_on_admin_id"
     t.index ["event_id"], name: "index_admins_events_on_event_id"
+  end
+
+  create_table "category_tags", force: :cascade do |t|
+    t.string "name"
+    t.string "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -66,15 +73,17 @@ ActiveRecord::Schema.define(version: 20171201011921) do
     t.text "description"
     t.integer "playtime"
     t.integer "maxPlayer"
-    t.string "gameType"
     t.integer "releaseYear"
     t.string "pictureUrl"
     t.string "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_tag_id"
+    t.index ["category_tag_id"], name: "index_games_on_category_tag_id"
   end
 
   add_foreign_key "comments", "admins"
   add_foreign_key "comments", "games"
   add_foreign_key "events", "games"
+  add_foreign_key "games", "category_tags"
 end

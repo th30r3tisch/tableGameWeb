@@ -7,8 +7,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
 	  if params[:search]
-   	      # rails is not able to search the gametype row in the db
-		  @events = Event.where('lower(name) LIKE ? OR lower(description) LIKE ? OR lower("ort") LIKE ?', 
+		  @events = Event.where('lower(name) LIKE ? OR lower(description) LIKE ? OR lower("ort") LIKE ?',
 			  "%#{params[:search].downcase}%", "%#{params[:search].downcase}%", "%#{params[:search].downcase}%")
 	  end
   end
@@ -34,7 +33,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-		@event.admins << current_admin
+		    @event.admins << current_admin
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else

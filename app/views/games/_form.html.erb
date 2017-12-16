@@ -32,8 +32,8 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :gameType %>
-    <%= form.text_field :gameType, class:"form-control", id: :game_gameType %>
+    <%= form.label :category %>
+    <%= form.select :category_tag_id, CategoryTag.all.collect { |c| [c.name, c.id]}, include_blank: true%>
   </div>
 
   <div class="form-group">
