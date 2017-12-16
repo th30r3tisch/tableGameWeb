@@ -1,4 +1,7 @@
 FactoryBot.define do
+  factory :role do
+    name "MyString"
+  end
   factory :category_tag do
     name "MyString"
     color "MyString"

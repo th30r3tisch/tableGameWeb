@@ -1,6 +1,10 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
+['banned', 'user', 'admin'].each do |role|
+  Role.find_or_create_by({name: role})
+end
+
 CategoryTag.destroy_all
 cat1 = CategoryTag.create(name: "Fight", color: "green")
 cat2 = CategoryTag.create(name: "Strategy", color: "red")
