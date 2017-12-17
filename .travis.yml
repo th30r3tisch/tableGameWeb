@@ -9,12 +9,10 @@ before_script:
 script:
 - docker-compose run --rm tablegamesite bundle exec rake spec
 after_success:
-- echo $HEROKU_TOKEN
-- echo $MY_SECRET_ENV
 - docker login -u _ -p "$HEROKU_TOKEN"  registry.heroku.com
 - docker build -t registry.heroku.com/tablegamesite/web -f Dockerfile.production .
 - docker push registry.heroku.com/tablegamesite/web
 env:
   global:
   - secure:
-  - secure:
+    rQIWpVNeSN7SSSHoZGnG52roJ+Mu+gQpB9nWidC4xO4lNcY75fRqGrfZ54Kfd47JcuDFfvcN7N3WHSUbzXWzK2A4K20EDxI/VnIGuo/hfBXZlHGtF5prA5xWJw+qztmuRL0hbIEG1J3jrXosLAAbmjYfRv3ORyEVTGYLHZkulXbsLHEbBdmwynZ2BAjGvwl2Awvd7rtW6lsf5GAQtMde4v7WFOwVesJR62vPvRzXtCqRMbiHtYcAT5f+YOSi4I8ulD7uPNo+1fACQn9tD/zlt8GfVNIUJVo1skyRrIREdtGAML98YF+IBfr+uQSj2jTSdUaDuR8T9V8mUT5Kf9BRe9Fw0O/wObRlZUsrNXsxSrze6yMYfCdrKZDCmoD1LBQklol8F7ILmIbffG57cQZOA++nLvVHO4frJkzfl3Bv1ow09CKRt3BssD3qLXEmR321YVcsz9DfKL9kZC1GMOfSZ0dOLtGBoNhkAeyeksMD1BrWCj3jKZjNIvtYMtp6M5s6RWRf2ZcAL8grM6jGbqSef+zMd0VJUL5DoqJlDDkbyQhrtMzzbkZSNHliWsl7q67ENwJbyFNyubcRutQr4EESkcDOhWtKlm9qPOVKMugCGKpL2afjwRWsFv7DRabBo2OxdXDhh5fK/scN7m18dlNXl4GMwcALu/273X6RjH4FA/Y=
