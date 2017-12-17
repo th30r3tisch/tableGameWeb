@@ -1,17 +1,10 @@
 FactoryBot.define do
   factory :role do
-    name "MyString"
+    name "user"
   end
   factory :category_tag do
-    name "MyString"
-    color "MyString"
-  end
-  factory :event do
-    name "MyString"
-    startDate "2017-11-28"
-    endDate "2017-11-28"
-    description "MyText"
-    ort "MyString"
+    name "Family"
+    color "Blue"
   end
   factory :admin do
     email 'test@ex.com'

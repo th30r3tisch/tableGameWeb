@@ -1,7 +1,7 @@
-<%= form_with(model: [ @game, @game.comments.build ], local: true) do |form| %>
+<%= form_with(model: [ @game, @game.comments.build ], local: true, html: { id: "commentForm" }) do |form| %>
   <div class="form-group">
     <%= form.label "Kommentar" %>
-    <%= form.text_area :body, class:"form-control" %>
+    <%= form.text_area :body, class:"form-control", id: "commentText" %>
   </div>
   <p>
     <%= form.submit "Senden", class:"btn btn-primary"%>
