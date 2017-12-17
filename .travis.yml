@@ -1,0 +1,20 @@
+language: generic
+sudo: required
+services:
+- docker
+before_script:
+- sudo /etc/init.d/postgresql stop
+- docker-compose build
+- docker-compose run tablegamesite bundle exec rails db:test:prepare
+script:
+- docker-compose run --rm tablegamesite bundle exec rake spec
+after_success:
+- echo $HEROKU_TOKEN
+- echo $MY_SECRET_ENV
+- docker login -u _ -p "$HEROKU_TOKEN"  registry.heroku.com
+- docker build -t registry.heroku.com/tablegamesite/web -f Dockerfile.production .
+- docker push registry.heroku.com/tablegamesite/web
+env:
+  global:
+  - secure:
+  - secure:

@@ -12,9 +12,9 @@ default: &default
   password:
 
 
-#production:
-#  <<: *default
-#  database: db/production.sqlite3
+production:
+  <<: *default
+  database: tableGameProdDB
 
 development:
   <<: *default

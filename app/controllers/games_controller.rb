@@ -10,6 +10,10 @@ class GamesController < ApplicationController
    	      # rails is not able to search the gametype row in the db
 		  @games = Game.where('lower(name) LIKE ? OR lower(description) LIKE ?',
 			  "%#{params[:search].downcase}%", "%#{params[:search].downcase}%")
+      respond_to do |f|
+        f.html { redirect_to games_path }
+        f.js
+      end
 	  end
   end
 

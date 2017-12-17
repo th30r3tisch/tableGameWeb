@@ -21,7 +21,7 @@
 			</ul>
 			<div id="searchWrapper">
 				<% if request.path_info.include?('games') %>
-					<%= form_tag(games_path , method: :get) do %>
+					<%= form_tag(games_path , method: :get, remote: true) do %>
 						<%= text_field_tag :search, params[:search], class:"form-control", placeholder: 'Search'%>
 						<%= button_tag(type: "submit", name: nil) do %>
 							<i class="fa fa-search"></i>
