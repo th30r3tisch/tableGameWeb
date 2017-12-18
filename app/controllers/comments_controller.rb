@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 	def create
 		@comment = @game.comments.create(comment_params)
 		@comment.author = current_admin
-		@comment.commenter = current_admin.name
+		@comment.commenter = current_admin.nickname
 
     	respond_to do |format|
 			if @comment.save

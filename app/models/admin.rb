@@ -1,14 +1,16 @@
 class Admin < ApplicationRecord
-	belongs_to :role
-	#before_create :set_default_role # or before_validation :set_default_role
 	before_validation :set_default_role, on: :create
+
+	belongs_to :role
 	has_many :comments
-  	# Include default devise modules. Others available are:
-  	# :confirmable, :lockable, :timeoutable and :omniauthable
+	has_and_belongs_to_many :events
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
 	# :recoverable, :rememberable, :validatable
  	devise :database_authenticatable, :registerable, :rememberable, :trackable
 	devise :database_authenticatable, :registerable, :rememberable, :trackable, :validatable
-	has_and_belongs_to_many :events
+
+	validates :nickname, presence: true
 
   private
 
