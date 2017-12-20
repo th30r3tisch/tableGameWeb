@@ -11,6 +11,7 @@ describe "A user can" do
     visit '/admins/sign_up'
     within("#new_admin") do
       fill_in 'Email', with: 'test@ex.com'
+      fill_in 'admin_nickname', with: 'nickname'
       fill_in 'Password', with: 'secret'
 	    fill_in 'Password confirmation', with: 'secret'
     end

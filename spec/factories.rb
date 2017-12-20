@@ -9,6 +9,7 @@ FactoryBot.define do
   factory :admin do
     email 'test@ex.com'
     password 'secret'
+    nickname 'nick'
 
     # if needed
     # is_active true
