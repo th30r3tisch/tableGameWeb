@@ -1,4 +1,10 @@
-<%= image_tag((@admin.picture_url.thumb.url), alt: @admin.nickname) %>
-<%= @admin.nickname %>
-<%= @admin.name %>
-<%= @admin.first_name %>
+<div id="profilView">
+  <div>
+    <h3><%= @admin.nickname %></h3>
+    <p>Member since <%= @admin.created_at %></p>
+    <p><%= @admin.first_name %> &nbsp; <%= @admin.name %></p>
+    <p>Likes XX games</p>
+    <p></p>
+  </div>
+  <%= image_tag((@admin.picture_url.thumb.url), alt: @admin.nickname) %>
+</div>

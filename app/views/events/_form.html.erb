@@ -16,19 +16,19 @@
     <%= form.text_field :name, class:"form-control", id: :event_name %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group datePicker">
     <%= form.label :startDate %>
-    <%= form.datetime_select :startDate, class:"form-control", id: :event_startDate, default: DateTime.now %>
+    <%= form.datetime_select :startDate, id: :event_startDate, default: DateTime.now %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group datePicker">
     <%= form.label :endDate %>
-    <%= form.datetime_select :endDate, class:"form-control", id: :event_endDate, default: DateTime.now %>
+    <%= form.datetime_select :endDate, id: :event_endDate, default: DateTime.now %>
   </div>
 
   <div class="form-group">
     <%= form.label :game %>
-    <%= form.select :game_id, Game.all.collect { |g| [g.name, g.id]}, include_blank: true, id: :event_game_id %>
+    <%= form.select :game_id, Game.all.collect { |g| [g.name, g.id]}, {include_blank: true}, {class:"form-control"} %>
   </div>
 
   <div class="form-group">
