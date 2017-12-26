@@ -5,17 +5,24 @@
 <div id="profilForm">
 	<div class="">
 		<div class="form-group">
-			<%= f.label :password %>
-			<%= f.password_field :password, class:"form-control", autocomplete: "off", placeholder:"leave blank if you don't want to change it" %>
-			<% if @minimum_password_length %>
-				<em><%= @minimum_password_length %> characters minimum</em>
-			<% end %>
+			<%= f.label :new_password %>
+			<%= f.password_field :password, class:"form-control", autocomplete: "off", placeholder: "" + @minimum_password_length.to_s + " characters minimum" %>
 		</div>
 
 		<div class="form-group">
 			<%= f.label :password_confirmation %>
 			<%= f.password_field :password_confirmation, class:"form-control", autocomplete: "off" %>
 		</div>
+
+    <div class="form-group">
+      <%= f.label :picture_url %>
+      <%= f.file_field :picture_url, class:"form-control", id: :admin_picture_url %>
+      <% if f.object.picture_url? %>
+        <%= image_tag f.object.picture_url.thumb.url %>
+        <%= f.label :remove_image %>
+        <%= f.check_box :remove_picture_url %>
+      <% end %>
+    </div>
 
 		<div class="form-group">
 			<%= f.label :current_password %>

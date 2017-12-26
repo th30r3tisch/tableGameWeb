@@ -11,10 +11,17 @@ class Admin < ApplicationRecord
 	devise :database_authenticatable, :registerable, :rememberable, :trackable, :validatable
 
 	validates :nickname, presence: true
+	mount_uploader :picture_url, ImageUploader
+	validates_processing_of :picture_url
+	validate :image_size_validation
 
   private
 
-  	def set_default_role
-    	self.role ||= Role.find_by_name('user')
-  	end
+	def image_size_validation
+		errors[:picture_url] << "should be less than 500KB" if picture_url.size > 0.5.megabytes
+	end
+
+  def set_default_role
+  	self.role ||= Role.find_by_name('user')
+  end
 end

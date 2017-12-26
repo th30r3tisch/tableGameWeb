@@ -1,3 +1,4 @@
-<img src="http://via.placeholder.com/150x250" width="100" height="150">
+<%= image_tag((@admin.picture_url.thumb.url), alt: @admin.nickname) %>
+<%= @admin.nickname %>
 <%= @admin.name %>
 <%= @admin.first_name %>
