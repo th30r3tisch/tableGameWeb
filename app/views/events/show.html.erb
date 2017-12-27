@@ -27,6 +27,11 @@
   <strong>Ort:</strong>
   <%= @event.ort %>
 </p>
+
+<p>
+  <strong>Maximal participants:</strong>
+  <%= @event.max_participants %>
+</p>
 <div class = "link-wrapper">
 	<%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?'} %> |
 	<%= link_to 'Edit', edit_event_path(@event) %> |
