@@ -32,8 +32,18 @@
   <strong>Maximal participants:</strong>
   <%= @event.max_participants %>
 </p>
+
+<p>
+  <strong>Test</strong>
+  <% @participants.each do |participant| %>
+    <p><%= participant.nickname %></p>
+  <% end %>
+</p>
+
 <div class = "link-wrapper">
 	<%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?'} %> |
 	<%= link_to 'Edit', edit_event_path(@event) %> |
-	<%= link_to 'Back', events_path %>
+	<%= link_to 'Back', events_path %> |
+  <%= link_to "Participate", register_path %> |
+  <%= link_to "Leave", leave_path %>
 </div>

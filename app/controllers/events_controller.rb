@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :register, :leave]
   skip_before_action :authenticate_admin!, only: [:index, :show]
 
   # GET /events
@@ -15,6 +15,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @participants = @event.admins
   end
 
   # GET /events/new
@@ -63,6 +64,22 @@ class EventsController < ApplicationController
     @event.destroy
     respond_to do |format|
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def register
+     @event.admins << current_admin
+     respond_to do |format|
+       format.html { redirect_to @event, notice: 'You participate.' }
+       format.json { head :no_content }
+     end
+  end
+
+  def leave
+    @event.admins.delete(current_admin)
+    respond_to do |format|
+      format.html { redirect_to @event, notice: 'You left.' }
       format.json { head :no_content }
     end
   end
