@@ -1,7 +1,8 @@
 language: ruby
 rvm: 2.4.2
 script:
-  rails db:migrate RAILS_ENV=test
+  RAILS_ENV=test bundle exec rake db:migrate --trace
+  bundle exec rake db:test:prepare
   bundle exec rspec spec
 deploy:
   provider: heroku
