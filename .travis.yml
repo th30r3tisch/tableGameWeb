@@ -1,11 +1,11 @@
 language: ruby
 rvm: 2.4.2
 before_script:
-  psql -c 'create database tableGameTestDB' -U postgres
+  sudo /etc/init.d/postgresql stop
+  docker-compose build
+  docker-compose run tablegamesite bundle exec rails db:test:prepare
 script:
-  RAILS_ENV=test bundle exec rake db:migrate --trace
-  bundle exec rake db:test:prepare
-  bundle exec rspec spec
+  docker-compose run --rm tablegamesite bundle exec rake spec
 deploy:
   provider: heroku
   app: tablegamesite
