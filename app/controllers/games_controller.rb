@@ -5,16 +5,15 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
-	  @games = Game.all
 	  if params[:search]
-   	      # rails is not able to search the gametype row in the db
 		  @games = Game.where('lower(name) LIKE ? OR lower(description) LIKE ?',
 			  "%#{params[:search].downcase}%", "%#{params[:search].downcase}%")
-      respond_to do |f|
-        f.html { redirect_to games_path }
-        f.js
-      end
-	  end
+        respond_to do |f|
+          f.js
+        end
+	  else
+      @games = Game.all
+    end
   end
 
   # GET /games/1

@@ -6,40 +6,39 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-	<%= favicon_link_tag 'favicon-32x32.png', rel: 'icon', type: 'image/png' %>
+	  <%= favicon_link_tag 'favicon-32x32.png', rel: 'icon', type: 'image/png' %>
 </head>
 <body onscroll="headerToggle()">
 	<div id="header">
 	  	<h1> <u> Board Games Site </u> </h1>
   		<div id="menu">
-			<ul>
-				<li><%= link_to 'HOME', games_path %></li>
-				<li><%= link_to 'EVENTS', events_path %></li>
-				<li><a href="#" title="">NEWS</a></li>
-				<li><a href="#" title="">CONTACT US</a></li>
-				<li><a href="#" title="">LINKS</a></li>
-			</ul>
-			<div id="searchWrapper">
-				<% if request.path_info.include?('games') %>
-					<%= form_tag(games_path , method: :get, remote: true) do %>
-						<%= text_field_tag :search, params[:search], class:"form-control", placeholder: 'Search'%>
-						<%= button_tag(type: "submit", name: nil) do %>
-							<i class="fa fa-search"></i>
-						<% end %>
-					<% end %>
-				<% end %>
-				<% if request.path_info.include?('events') %>
-					<%= form_tag(events_path , method: :get) do %>
-						<%= text_field_tag :search, params[:search], class:"form-control", placeholder: 'Search'%>
-						<%= button_tag(type: "submit", name: nil) do %>
-							<i class="fa fa-search"></i>
-						<% end %>
-					<% end %>
-				<% end %>
-			</div>
+  			<ul>
+  				<li><%= link_to 'HOME', games_path %></li>
+  				<li><%= link_to 'EVENTS', events_path %></li>
+  				<li><a href="#" title="">NEWS</a></li>
+  				<li><a href="#" title="">CONTACT US</a></li>
+  				<li><a href="#" title="">LINKS</a></li>
+  			</ul>
+  			<div id="searchWrapper">
+  				<% if request.path_info.include?('games') %>
+  					<%= form_tag(games_path , method: :get) do %>
+  						<%= text_field_tag :search, params[:search], class:"form-control", placeholder: 'Search'%>
+  						<%= button_tag(type: "submit", name: nil) do %>
+  							<i class="fa fa-search"></i>
+  						<% end %>
+  					<% end %>
+  				<% end %>
+  				<% if request.path_info.include?('events') %>
+  					<%= form_tag(events_path , method: :get) do %>
+  						<%= text_field_tag :search, params[:search], class:"form-control", placeholder: 'Search'%>
+  						<%= button_tag(type: "submit", name: nil) do %>
+  							<i class="fa fa-search"></i>
+  						<% end %>
+  					<% end %>
+  				<% end %>
+  			</div>
   		</div>
-	</div>
-
+	  </div>
   	<div id="content">
 		<% if notice.present? %>
         	<aside class = "alert alert-info">

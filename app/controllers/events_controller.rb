@@ -69,10 +69,21 @@ class EventsController < ApplicationController
   end
 
   def register
-     @event.admins << current_admin
-     respond_to do |format|
-       format.html { redirect_to @event, notice: 'You participate.' }
-       format.json { head :no_content }
+     @maxParticipants = @event.max_participants
+     @participants = @event.admins
+     if @participants.length < @maxParticipants
+       if @event.admins.exists?(current_admin.id)
+         respond_to do |format|
+           format.html { redirect_to @event, notice: 'You are already registered' }
+           format.json { head :no_content }
+         end
+       else
+         @event.admins << current_admin
+         respond_to do |format|
+           format.html { redirect_to @event, notice: 'You participate.' }
+           format.json { head :no_content }
+         end
+       end
      end
   end
 

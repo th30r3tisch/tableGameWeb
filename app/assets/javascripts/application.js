@@ -11,12 +11,14 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery
+//= require jquery_ujs
 //= require turbolinks
 //= require_tree .
 
 function headerToggle(){
  	var shrinkHeader = 25;
-    var scroll = getCurrentScroll();
+  var scroll = getCurrentScroll();
 	var m = document.getElementById('menu');
 	var h = document.getElementById('header');
     if ( scroll >= shrinkHeader ) {
@@ -33,3 +35,14 @@ function headerToggle(){
 function getCurrentScroll() {
     return window.pageYOffset || document.documentElement.scrollTop;
 }
+
+
+$(document).ready(function(){
+  $('#search').on("input", function(){
+    $.ajax({
+      url: "/games",
+      type: "GET",
+      data: {search: this.value}
+    })
+  });
+});

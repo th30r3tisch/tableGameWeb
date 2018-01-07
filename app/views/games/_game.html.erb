@@ -1,0 +1,17 @@
+<li class="flex-item">
+    <%= link_to image_tag((game.pictureUrl.thumb.url), size: "200x200", alt: game.name),
+              showGame_path(id:game, idU:current_admin) ,class: "gamePic" %>
+    <div>
+        <div><%= game.name %><span style="background-color:<%= game.category_tag.color %>" ></span></div>
+    </div>
+    <% if current_admin %>
+      <div>
+        <%= link_to edit_game_path(game) do %>
+          <%= fa_icon "pencil-square-o" %>
+        <% end %>
+        <%= link_to game, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <%= fa_icon "trash-o" %>
+        <% end %>
+      </div>
+    <% end %>
+</li>
