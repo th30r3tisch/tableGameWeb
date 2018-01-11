@@ -1,6 +1,9 @@
 module ApplicationHelper
   def searchPath()
-    games_path if request.path_info.include?('games')
-    events_path if request.path_info.include?('events')
+    if controller_name == 'events'
+      events_path
+    else controller_name == 'games'
+      games_path
+    end
   end
 end

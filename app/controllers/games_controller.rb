@@ -10,6 +10,7 @@ class GamesController < ApplicationController
 			  "%#{params[:search].downcase}%", "%#{params[:search].downcase}%")
         respond_to do |f|
           f.js
+          f.html
         end
 	  else
       @games = Game.all

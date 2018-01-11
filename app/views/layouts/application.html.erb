@@ -7,6 +7,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	  <%= favicon_link_tag 'favicon-32x32.png', rel: 'icon', type: 'image/png' %>
+    
 </head>
 <body onscroll="headerToggle()">
 	<div id="header">
@@ -20,22 +21,12 @@
   				<li><a href="#" title="">LINKS</a></li>
   			</ul>
   			<div id="searchWrapper">
-  				<% if request.path_info.include?('games') %>
-  					<%= form_tag(games_path , method: :get) do %>
-  						<%= text_field_tag :search, params[:search], class:"form-control", placeholder: 'Search'%>
-  						<%= button_tag(type: "submit", name: nil) do %>
-  							<i class="fa fa-search"></i>
-  						<% end %>
-  					<% end %>
-  				<% end %>
-  				<% if request.path_info.include?('events') %>
-  					<%= form_tag(events_path , method: :get) do %>
-  						<%= text_field_tag :search, params[:search], class:"form-control", placeholder: 'Search'%>
-  						<%= button_tag(type: "submit", name: nil) do %>
-  							<i class="fa fa-search"></i>
-  						<% end %>
-  					<% end %>
-  				<% end %>
+          <%= form_tag(searchPath(), method: :get) do %>
+            <%= text_field_tag :search, params[:search], class:"form-control", placeholder: 'Search'%>
+            <%= button_tag(type: "submit", name: nil) do %>
+              <i class="fa fa-search"></i>
+            <% end %>
+          <% end %>
   			</div>
   		</div>
 	  </div>
