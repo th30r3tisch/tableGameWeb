@@ -8,7 +8,7 @@ FactoryBot.define do
   end
   factory :admin do
     email 'test@ex.com'
-    password 'secret'
+    password 'secret12'
     nickname 'nick'
 
     # if needed

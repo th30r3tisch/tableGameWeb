@@ -12,8 +12,8 @@ describe "A user can" do
     within("#new_admin") do
       fill_in 'Email', with: 'test@ex.com'
       fill_in 'admin_nickname', with: 'nickname'
-      fill_in 'Password', with: 'secret'
-	    fill_in 'Password confirmation', with: 'secret'
+      fill_in 'Password', with: 'secret12'
+	    fill_in 'Password confirmation', with: 'secret12'
     end
     click_button 'Sign up'
     expect(page).to have_content 'signed up successfully'
@@ -24,7 +24,7 @@ describe "A user can" do
     visit '/admins/sign_in'
     within("#new_admin") do
       fill_in 'Email', with: 'test@ex.com'
-      fill_in 'Password', with: 'secret'
+      fill_in 'Password', with: 'secret12'
     end
     click_button 'Log in'
     expect(page).to have_content 'Signed in successfully'

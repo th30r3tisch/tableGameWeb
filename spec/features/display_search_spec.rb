@@ -7,7 +7,7 @@ require 'rails_helper'
 
      @game1 = Game.create(category_tag: cat1, name: "GameNrTwo", description: "here the game is explained and some more infos abaut how to play the game..", playtime: 12, maxPlayer: 5, releaseYear: 2015, pictureUrl: "http://via.placeholder.com/150x150" )
      @game2 = Game.create(category_tag: cat1, name: "GameNrThree", description: "here the game is explained and some more infos abaut how to play the game..", playtime: 1, maxPlayer: 2, releaseYear: 1990, pictureUrl: "http://via.placeholder.com/150x250" )
-     @game3 = Game.create(category_tag: cat1, name: "GameNrFour", description: "here the game is explained and some more infos abaut how to play the game..", playtime: 11, maxPlayer: 2, releaseYear: 1999, pictureUrl: "http://via.placeholder.com/150x250" )
+     @game3 = Game.create(category_tag: cat1, name: "GameNrFour", description: "here the game is explained and some more infos abaut how to play the game..special", playtime: 11, maxPlayer: 2, releaseYear: 1999, pictureUrl: "http://via.placeholder.com/150x250" )
 
 	    Event.create(name: "EventNrOne", description: "this is a description of an event etc. bla...", game: @game1, ort: "hier", startDate:"01/12/2017 02:21", endDate:"01/12/2017 02:21")
 	   	Event.create(name: "EventNrTwo", description: "this is a description of an event etc. bla... hmm und hier", game: @game2, ort: "dort", startDate:"01/12/2017 02:21", endDate:"01/12/2017 02:21")
@@ -15,27 +15,27 @@ require 'rails_helper'
 
    end
 
-   # it 'correct game names', js: true do
-   #    visit games_path
-	 #    fill_in 'search', :with => 'GameNrTwo'
-	 #    find('button[type="submit"]').click
-   #    expect(page).to have_content('GameNrTwo')
-   # end
-   #
-   # it "correct game types", js: true do
+   it 'correct game names' do
+      visit games_path
+	    fill_in 'search', :with => 'GameNrTwo'
+	    find('button[type="submit"]').click
+      expect(page).to have_content('GameNrTwo')
+   end
+
+   # it "correct game types" do
 	 #    visit games_path
 	 #    fill_in 'search', :with => 'Fight'
 	 #    find('button[type="submit"]').click
    #    expect(page).to have_content('GameNrFour')
    #    expect(page).to have_content('GameNrTwo')
    # end
-   #
-   # it "correct game descriptions", js: true do
-	 #    visit games_path
- 	 #    fill_in 'search', :with => 'special'
-	 #    find('button[type="submit"]').click
-   #    expect(page).to have_content('GameNrFour')
-   # end
+
+   it "correct game descriptions" do
+	    visit games_path
+ 	    fill_in 'search', :with => 'special'
+	    find('button[type="submit"]').click
+      expect(page).to have_content('GameNrFour')
+   end
 
 
 
