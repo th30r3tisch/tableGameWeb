@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171226235341) do
+ActiveRecord::Schema.define(version: 20180113225957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,9 +31,13 @@ ActiveRecord::Schema.define(version: 20171226235341) do
     t.bigint "role_id"
     t.string "nickname", null: false
     t.string "picture_url"
+    t.integer "failed_attempts", default: 0
+    t.string "unlock_token"
+    t.datetime "locked_at"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["nickname"], name: "index_admins_on_nickname", unique: true
     t.index ["role_id"], name: "index_admins_on_role_id"
+    t.index ["unlock_token"], name: "index_admins_on_unlock_token", unique: true
   end
 
   create_table "admins_events", id: false, force: :cascade do |t|

@@ -7,8 +7,7 @@ class Admin < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 	# :recoverable, :rememberable, :validatable
- 	devise :database_authenticatable, :registerable, :rememberable, :trackable
-	devise :database_authenticatable, :registerable, :rememberable, :trackable, :validatable
+	devise :database_authenticatable, :registerable, :rememberable, :trackable, :validatable, :timeoutable, :lockable, :timeout_in => 30.minutes
 
 	validates :nickname, presence: true
 	mount_uploader :picture_url, ImageUploader
