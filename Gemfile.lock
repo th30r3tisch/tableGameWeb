@@ -271,7 +271,7 @@ DEPENDENCIES
   jquery-rails
   koala
   mini_magick (~> 4.3)
-  pg
+  pg (~> 0.18)
   puma (~> 3.7)
   rails (~> 5.1.4)
   rails-controller-testing
