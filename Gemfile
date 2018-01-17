@@ -40,6 +40,9 @@ gem "factory_bot_rails", "~> 4.0"
 # needed for rolemanagement (login)
 gem 'devise'
 
+# gems to use fb graph api to post
+gem 'koala'
+
 # gems to upload pictures
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'

@@ -1,3 +1,5 @@
+<script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV["MAPS_KEY"]%>&callback=initMap" async defer></script>
+
 <p>
   <strong>Name:</strong>
   <%= @event.name %>
@@ -26,6 +28,7 @@
 <p>
   <strong>Ort:</strong>
   <%= @event.ort %>
+  <div id="map"></div>
 </p>
 
 <p>
@@ -34,11 +37,12 @@
 </p>
 
 <p>
-  <strong>Test</strong>
+  <strong>Participants:</strong>
   <% @participants.each do |participant| %>
     <p><%= participant.nickname %></p>
   <% end %>
 </p>
+
 
 <div class = "link-wrapper">
 	<%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?'} %> |
