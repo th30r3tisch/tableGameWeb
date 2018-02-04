@@ -394,3 +394,60 @@ Maps
   width: 300px;
   display: inline-block;
 }
+
+/**
+Filter
+**/
+#filterWrapper form{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-top: 15px;
+  background-color: white;
+  div{
+    padding: 0 5px;
+    width: 210px;
+    display: flex;
+    flex-wrap: wrap;
+    label{
+      width: 100px;
+      padding-top: 8px;
+    }
+    input{
+      width: 100px;
+    }
+    &.actions{
+      display: table-cell;
+      padding-bottom: 16px;
+    }
+  }
+}
+#radialShadow{
+  height: 15px;
+  margin-top: -25px;
+  background: -moz-radial-gradient(50% -33%, ellipse cover, #212121 0%, rgba(0,0,0,0.0) 70%); /* FF3.6-15 */
+  background: -webkit-radial-gradient(50% -33%, ellipse cover, #212121 0%, rgba(0,0,0,0.0) 70%); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at 50% -33%, #212121 0%, rgba(0,0,0,0.0) 70%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+#filter{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 55px;
+  z-index: 1;
+}
+
+
+/**
+Media
+**/
+@media (min-width: 1300px) {
+  .hide-1300-up{
+    display: none;
+  }
+}
+@media (max-width: 1300px) {
+  .hide-1300-down{
+    display: none;
+  }
+}

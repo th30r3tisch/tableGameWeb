@@ -9,6 +9,7 @@
 </div>
 
 <h2>Games</h2>
+<%= render 'filter' %>
 <% if @games.blank? %>
   	<h5>There are no Games containing the term <%= params[:search] %>.</h5>
 <% end %>
