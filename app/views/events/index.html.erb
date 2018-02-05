@@ -1,6 +1,6 @@
 <h1>Events</h1>
 
-<table class="table">
+<table id="eventTable" class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -8,21 +8,28 @@
       <th>Startdate</th>
       <th>Enddate</th>
       <th>Ort</th>
-      <th></th>
+      <% if current_admin %>
+        <th></th>
+      <% end %>
     </tr>
   </thead>
 
   <tbody>
     <% @events.each do |event| %>
-      <tr>
+      <tr data-link="<%= event_path(event) %>">
         <td><%= event.name %></td>
 		    <td><%= event.game.name %></td>
         <td><%= event.startDate.strftime("%d/%m/%Y %I:%M") %></td>
         <td><%= event.endDate.strftime("%d/%m/%Y %I:%M") %></td>
         <td><%= event.ort %></td>
-        <td><%= link_to 'Show', event %>
-        <%= link_to 'Edit', edit_event_path(event) %>
-        <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_admin %>
+          <td>
+            <% if isOrganizer(event) || isAdmin %>
+              <%= link_to 'Edit', edit_event_path(event) %>
+              <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -31,5 +38,6 @@
 <% if @events.blank? %>
     <h5>There are no Events containing the term <%= params[:search] %>.</h5>
 <% end %>
-
-<%= link_to 'New Event', new_event_path %>
+<% if current_admin %>
+  <%= link_to 'New Event', new_event_path %>
+<% end %>

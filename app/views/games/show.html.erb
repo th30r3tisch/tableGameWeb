@@ -39,8 +39,10 @@
 			<h5>Add a comment:</h5>
 			<%= render 'comments/form' %>
 			<div class = "link-wrapper">
-				<%= link_to 'Destroy', @game, method: :delete, data: { confirm: 'Are you sure?'} %> |
-				<%= link_to 'Edit', edit_game_path(@game) %> |
+				<% if isAdmin %>
+					<%= link_to 'Destroy', @game, method: :delete, data: { confirm: 'Are you sure?'} %> |
+					<%= link_to 'Edit', edit_game_path(@game) %> |
+				<% end %>
 				<%= link_to 'Back', games_path %>
 			</div>
 		<% end %>

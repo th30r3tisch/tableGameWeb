@@ -3,7 +3,7 @@
 		<%= comment.body %>
 	 </div>
 	 <div class="commentInfo">
-		<% if current_admin %>
+		<% if current_admin && (isAuthor(comment) || isAdmin) %>
 			<span>
 				<%= link_to 'Löschen', [comment.game, comment],
 					   method: :delete,

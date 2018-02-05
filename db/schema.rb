@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180113225957) do
+ActiveRecord::Schema.define(version: 20180205203732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,9 @@ ActiveRecord::Schema.define(version: 20180113225957) do
     t.datetime "updated_at", null: false
     t.bigint "game_id"
     t.integer "max_participants"
+    t.bigint "admin_id"
+    t.boolean "public", default: true
+    t.index ["admin_id"], name: "index_events_on_admin_id"
     t.index ["game_id"], name: "index_events_on_game_id"
   end
 
@@ -101,6 +104,7 @@ ActiveRecord::Schema.define(version: 20180113225957) do
   add_foreign_key "admins", "roles"
   add_foreign_key "comments", "admins"
   add_foreign_key "comments", "games"
+  add_foreign_key "events", "admins"
   add_foreign_key "events", "games"
   add_foreign_key "games", "category_tags"
 end

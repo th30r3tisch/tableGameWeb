@@ -37,6 +37,10 @@ h1 {
 	}
 }
 
+h2 {
+  margin-bottom: 50px;
+}
+
 #header{
 	position: fixed;
 	top: 0px;
@@ -215,6 +219,12 @@ label {
     top: 0;
   }
 }
+
+#eventTable tbody tr:hover{
+  background: -moz-linear-gradient(top, #ffffff 0%, #e0e0e0 39%, #e0e0e0 65%, #ffffff 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #ffffff 0%,#e0e0e0 39%,#e0e0e0 65%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #ffffff 0%,#e0e0e0 39%,#e0e0e0 65%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  }
 
 #footer{
 	z-index: -1;

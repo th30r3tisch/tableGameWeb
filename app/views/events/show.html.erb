@@ -1,8 +1,9 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV["MAPS_KEY"]%>&callback=initMap" async defer></script>
 
+<h2><%= @event.name %></h2>
 <p>
-  <strong>Name:</strong>
-  <%= @event.name %>
+  <strong>Organizer:</strong>
+  <%= @event.organizer.nickname %>
 </p>
 
 <p>
@@ -46,15 +47,18 @@
     <% end %>
   </p>
 <% end %>
-
-<div class = "link-wrapper">
-	<%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?'} %> |
-	<%= link_to 'Edit', edit_event_path(@event) %> |
-	<%= link_to 'Back', events_path %> |
-  <% if canParticipate %>
-    <%= link_to "Participate", register_path %>
-  <% end %>
-  <% if canLeave %>
-    <%= link_to "Leave", leave_path %>
-  <% end %>
-</div>
+<% if current_admin %>
+  <div class = "link-wrapper">
+    <% if isOrganizer(@event) || isAdmin %>
+      <%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?'} %> |
+      <%= link_to 'Edit', edit_event_path(@event) %> |
+    <% end %>
+  	<%= link_to 'Back', events_path %> |
+    <% if canParticipate %>
+      <%= link_to "Participate", register_path %>
+    <% end %>
+    <% if canLeave %>
+      <%= link_to "Leave", leave_path %>
+    <% end %>
+  </div>
+<% end %>

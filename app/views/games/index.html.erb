@@ -18,5 +18,6 @@
 			<%= render 'game', game: game %>
 		<% end %>
 </ul>
-
-<%= link_to 'New Game', new_game_path %>
+<% if current_admin %>
+  <%= link_to 'New Game', new_game_path %>
+<% end %>

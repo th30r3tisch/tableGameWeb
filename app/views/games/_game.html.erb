@@ -4,7 +4,7 @@
     <div>
         <div><%= game.name %><span style="background-color:<%= game.category_tag.color %>" ></span></div>
     </div>
-    <% if current_admin %>
+    <% if isAdmin %>
       <div>
         <%= link_to edit_game_path(game) do %>
           <%= fa_icon "pencil-square-o" %>
