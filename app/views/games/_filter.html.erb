@@ -1,6 +1,6 @@
 <div id="filter">
   <div id="filterWrapper">
-    <%= form_tag('/games/filter' , method: :get) do |form| %>
+    <%= form_tag(gamesFilter_path , method: :get) do %>
       <div class="form-group">
         <%= label_tag :play_time%>
         <%= text_field_tag :play_time, params[:play_time], class:"form-control"%>
@@ -19,10 +19,10 @@
       </div>
       <div class="form-group">
         <%= label_tag :category%>
-        <%= text_field_tag :category, params[:category], class:"form-control"%>
+        <%= select_tag :category_tag_id, options_for_select(CategoryTag.all.collect { |c| [c.name, c.id]}), include_blank: true, class:"form-control" %>
       </div>
       <div class="actions">
-        <%=@button = submit_tag "Filter", class:"btn btn-primary"%>
+        <%= submit_tag "Filter", class:"btn btn-primary"%>
       </div>
     <% end %>
   </div>

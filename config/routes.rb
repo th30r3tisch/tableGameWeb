@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :events
   devise_for :admins
+
+  get 'games/filter' => 'games#filter', as: "gamesFilter"
+
 	resources :games do
   		resources :comments
 	end

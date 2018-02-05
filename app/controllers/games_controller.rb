@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_admin!, only: [:index, :show]
+  skip_before_action :authenticate_admin!, only: [:index, :show, :filter]
 
   # GET /games
   # GET /games.json
@@ -75,13 +75,19 @@ class GamesController < ApplicationController
     end
   end
 
+  def filter
+
+    @games = Game.where('playtime <= ?', "#{params[:play_time]}".to_i) if params[:play_time].length > 0
+    @games = @games.where('"releaseYear" = ?', "#{params[:releaseYear]}".to_i) if params[:releaseYear].length > 0
+    @games = @games.where('"maxPlayer" <= ?', "#{params[:max_player]}".to_i) if params[:max_player].length > 0
+    @games = @games.where('"maxPlayer" >= ?', "#{params[:min_player]}".to_i) if params[:min_player].length > 0
+    @games = @games.where('category_tag_id = ?', "#{params[:category_tag_id]}".to_i) if params[:category_tag_id].length > 0
+    respond_to do |format|
+      format.html { render action: "index" }
+    end
+  end
 
   private
-
-	# does not work
-	#def self.search(search)
-  	#	where("name LIKE ? OR gameType LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
-	#end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_game
@@ -93,8 +99,4 @@ class GamesController < ApplicationController
       	params.require(:game).permit(:name, :description, :playtime, :maxPlayer, :releaseYear, :pictureUrl, :remove_pictureUrl, :category_tag_id)
     end
 
-	# does not work
-	#def search_params
-	#	params.require(:search).permit(:name, :description, :gameType)
-	#end
 end
