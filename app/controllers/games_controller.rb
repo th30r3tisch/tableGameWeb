@@ -76,8 +76,8 @@ class GamesController < ApplicationController
   end
 
   def filter
-
-    @games = Game.where('playtime <= ?', "#{params[:play_time]}".to_i) if params[:play_time].length > 0
+    @games = Game.all
+    @games = @games.where('playtime <= ?', "#{params[:play_time]}".to_i) if params[:play_time].length > 0
     @games = @games.where('"releaseYear" = ?', "#{params[:releaseYear]}".to_i) if params[:releaseYear].length > 0
     @games = @games.where('"maxPlayer" <= ?', "#{params[:max_player]}".to_i) if params[:max_player].length > 0
     @games = @games.where('"maxPlayer" >= ?', "#{params[:min_player]}".to_i) if params[:min_player].length > 0

@@ -71,7 +71,7 @@ class EventsController < ApplicationController
   def register
      @maxParticipants = @event.max_participants
      @participants = @event.admins
-     if @participants.length < @maxParticipants
+     if @maxParticipants == nil || @participants.length < @maxParticipants
        if @event.admins.exists?(current_admin.id)
          respond_to do |format|
            format.html { redirect_to @event, notice: 'You are already registered' }
