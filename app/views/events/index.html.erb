@@ -16,7 +16,11 @@
 
   <tbody>
     <% @events.each do |event| %>
-      <tr data-link="<%= event_path(event) %>">
+      <% if !event.public && !current_admin%>
+        <tr>
+      <% else %>
+        <tr class="toHover" data-link="<%= event_path(event) %>">
+      <% end %>
         <td><%= event.name %></td>
 		    <td><%= event.game.name %></td>
         <td><%= event.startDate.strftime("%d/%m/%Y %I:%M") %></td>
