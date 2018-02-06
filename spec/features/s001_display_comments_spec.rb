@@ -3,10 +3,7 @@ require 'rails_helper'
  describe 'the game detail page' do
 
    before :each do
-     ['user', 'admin'].each do |role|
-       Role.find_or_create_by({name: role})
-     end
-
+      role = FactoryBot.create(:role)
 	   	admin = FactoryBot.create(:admin)
 	    login_as(admin, :scope => :admin)
 

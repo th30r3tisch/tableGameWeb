@@ -2,9 +2,7 @@ require 'rails_helper'
 
 describe "A user can" do
   before :each do
-    ['user', 'admin'].each do |role|
-      Role.find_or_create_by({name: role})
-    end
+    role = FactoryBot.create(:role)
   end
 
   it "register" do

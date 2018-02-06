@@ -3,15 +3,19 @@ require 'rails_helper'
  describe 'the search finds the' do
 
    before :each do
+      role = FactoryBot.create(:role)
+      admin = FactoryBot.create(:admin)
+      login_as(admin, :scope => :admin)
+
      cat1 = CategoryTag.create(name: "Fight", color: "green")
 
      @game1 = Game.create(category_tag: cat1, name: "GameNrTwo", description: "here the game is explained and some more infos abaut how to play the game..", playtime: 12, maxPlayer: 5, releaseYear: 2015, pictureUrl: "http://via.placeholder.com/150x150" )
      @game2 = Game.create(category_tag: cat1, name: "GameNrThree", description: "here the game is explained and some more infos abaut how to play the game..", playtime: 1, maxPlayer: 2, releaseYear: 1990, pictureUrl: "http://via.placeholder.com/150x250" )
      @game3 = Game.create(category_tag: cat1, name: "GameNrFour", description: "here the game is explained and some more infos abaut how to play the game..special", playtime: 11, maxPlayer: 2, releaseYear: 1999, pictureUrl: "http://via.placeholder.com/150x250" )
 
-	    Event.create(name: "EventNrOne", description: "this is a description of an event etc. bla...", game: @game1, ort: "hier", startDate:"01/12/2017 02:21", endDate:"01/12/2017 02:21")
-	   	Event.create(name: "EventNrTwo", description: "this is a description of an event etc. bla... hmm und hier", game: @game2, ort: "dort", startDate:"01/12/2017 02:21", endDate:"01/12/2017 02:21")
-	   	Event.create(name: "EventNrThree", description: "this is a description of an event etc. bla...", game: @game3, ort: "hier", startDate:"01/12/2017 02:21", endDate:"01/12/2017 02:21")
+	    Event.create(name: "EventNrOne", description: "this is a description of an event etc. bla...", game: @game1, ort: "hier", startDate:"01/12/2017 02:21", endDate:"01/12/2017 02:21", organizer: admin)
+	   	Event.create(name: "EventNrTwo", description: "this is a description of an event etc. bla... hmm und hier", game: @game2, ort: "dort", startDate:"01/12/2017 02:21", endDate:"01/12/2017 02:21", organizer: admin)
+	   	Event.create(name: "EventNrThree", description: "this is a description of an event etc. bla...", game: @game3, ort: "hier", startDate:"01/12/2017 02:21", endDate:"01/12/2017 02:21", organizer: admin)
 
    end
 
@@ -36,8 +40,6 @@ require 'rails_helper'
 	    find('button[type="submit"]').click
       expect(page).to have_content('GameNrFour')
    end
-
-
 
 	it 'correct event names' do
      visit events_path
